@@ -1,0 +1,724 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<extension 
+	type="module" 
+	version="1.6.0" 
+	client="site" 
+	method="upgrade">
+    <name>IceAccordion Module</name>
+    <creationDate>November 2010</creationDate>
+    <author>IceTheme</author>
+    <copyright>GNU / GPL</copyright>
+    <authorEmail>info@icetheme.com</authorEmail>
+    <authorUrl>http://www.icetheme.com</authorUrl>
+    <version>1.7.0</version>
+	<description>
+	<![CDATA[
+	 <a target="_blank" href="icetheme.com"><b>IceAccordion  Module</b></a> </br><br>IceAccordion Module can display a set of articles in a small area on your website in an accordion way. This Module is released under the GPL license.<br><br><ul><li><a href="http://icetheme.com/Joomla-Extensions/iceaccordion.html">IceAccordion Page</a></li><li><a target="_blank" href="http://icetheme.com/Forums">Discussion</a></li></ul></li></ul> <script type="text/javascript" src="../modules/mod_ice_accordion/assets/form.js"></script> <style>.lof-group{ padding:2px;color:#666;background:#CCC;cursor:hand; font-weight:bold; cursor:pointer}</style>
+	]]>
+	</description>
+     <files>
+        <filename module="mod_ice_accordion">mod_ice_accordion.php</filename>
+        <filename module="mod_ice_accordion">helper.php</filename>
+		<filename module="mod_ice_accordion">index.html</filename>
+		<filename module="mod_ice_accordion">CHANGELOG.php</filename>
+		<filename module="mod_ice_accordion">LICENSE.php</filename>
+		<filename module="mod_ice_accordion">ajax.php</filename>
+		
+        <folder module="mod_ice_accordion">libs</folder>
+		<folder module="mod_ice_accordion">assets</folder>
+        <folder module="mod_ice_accordion">tmpl</folder>
+		<folder module="mod_ice_accordion">themes</folder>
+    </files>
+	<languages>
+		<language tag="en-GB">languages/en-GB/en-GB.mod_ice_accordion.ini</language>
+	</languages>
+	<config>
+    <fields 
+		name="params"
+		addfieldpath="/modules/mod_ice_accordion/libs/elements">
+		<fieldset 
+			name="basic">
+			<field 
+					name="theme" 
+					type="folderlist"
+					directory="modules/mod_ice_accordion/themes/" 
+					default=""
+					label="SELECT_THEME" 
+					description="THEME_FOR_VIEW">
+
+			</field>
+		   <field 
+			name="auto_renderthumb" 
+			type="radio" 
+			default="1" 
+			label="RENDER_THUMBNAIL" 
+			description="RENDER_THUMBNAIL_DESC">
+			  <option value="0">NO</option>
+			  <option value="1">YES</option>
+			</field>
+			<field 
+				name="image_quanlity" 
+				type="text" 
+				default="100" 
+				label="IMAGE_QUANLITY" 
+				description="IMAGE_QUANLITY_DESC" />		  
+			<field 
+				name="main_width" 
+				type="text" 
+				default="160" 
+				label="DISPLAY_MAIN_WIDTH" 
+				description="DISPLAY_MAIN_WIDTH_DESC">
+			</field>
+			
+			<field 
+				name="main_height" 
+				type="text" 
+				default="120" 
+				label="DISPLAY_MAIN_HEIGHT" 
+				description="DISPLAY_MAIN_HEIGHT_DESC">
+			</field>
+			<field 
+			name="hide_arrows" 
+			type="radio" 
+			default="0" 
+			label="HIDE_ARROWS" 
+			description="HIDE_ARROWS_DESC">
+			  <option value="0">NO</option>
+			  <option value="1">YES</option>
+			</field>
+					<field name="" type="spacer" default="" label="" description="" />
+					<field name="" type="spacer" default="" label="" description="" />
+
+			<field 
+				name="data_source" 
+				type="list" 
+				default="content" 
+				title="SOURCE" 
+				description="SOURCE_DESC">
+					<option value="content">Content</option>
+					<option value="joomshopping">Joom Shopping</option>
+					<option value="ip">Intellectual Property</option>
+			</field>
+			<field type="lofspacer" />
+			</fieldset>
+			<fieldset name="filtering"
+				label="MOD_ACCORDION_FIELD_GROUP_FILTERING_LABEL"
+			>
+				<field name="show_front" type="radio" default="show"
+					label="MOD_ACCORDION_FIELD_SHOWFEATURED_LABEL"
+					description="MOD_ACCORDION_FIELD_SHOWFEATURED_DESC"
+				>
+					<option value="show">JSHOW
+					</option>
+					<option value="hide">JHIDE
+					</option>
+					<option value="only">MOD_ACCORDION_OPTION_ONLYFEATURED_VALUE
+					</option>
+				</field>
+
+				<field name="filteringspacer1" type="spacer" hr="true" />
+
+				<field name="category_filtering_type" type="radio"
+					default="1"
+					label="MOD_ACCORDION_FIELD_CATFILTERINGTYPE_LABEL"
+					description="MOD_ACCORDION_FIELD_CATFILTERINGTYPE_DESC"
+				>
+					<option value="1">MOD_ACCORDION_OPTION_INCLUSIVE_VALUE
+					</option>
+					<option value="0">MOD_ACCORDION_OPTION_EXCLUSIVE_VALUE
+					</option>
+				</field>
+
+				<field name="catid" type="category" extension="com_content"
+					multiple="true" size="5"
+					label="JCATEGORY"
+					description="MOD_ACCORDION_FIELD_CATEGORY_DESC"
+				>
+					<option value="">JOPTION_ALL_CATEGORIES</option>
+				</field>
+
+				<field name="show_child_category_articles" type="radio"
+					default="0"
+					label="MOD_ACCORDION_FIELD_SHOWCHILDCATEGORYARTICLES_LABEL"
+					description="MOD_ACCORDION_FIELD_SHOWCHILDCATEGORYARTICLES_DESC"
+				>
+					<option value="1">MOD_ACCORDION_OPTION_INCLUDE_VALUE
+					</option>
+					<option value="0">MOD_ACCORDION_OPTION_EXCLUDE_VALUE
+					</option>
+				</field>
+
+				<field name="levels" type="text" default="1"
+					label="MOD_ACCORDION_FIELD_CATDEPTH_LABEL"
+					description="MOD_ACCORDION_FIELD_CATDEPTH_DESC" />
+
+				<field name="filteringspacer2" type="spacer" hr="true" />
+
+				<field name="author_filtering_type" type="radio"
+					default="1"
+					label="MOD_ACCORDION_FIELD_AUTHORFILTERING_LABEL"
+					description="MOD_ACCORDION_FIELD_AUTHORFILTERING_DESC"
+				>
+					<option value="1">MOD_ACCORDION_OPTION_INCLUSIVE_VALUE
+					</option>
+					<option value="0">MOD_ACCORDION_OPTION_EXCLUSIVE_VALUE
+					</option>
+				</field>
+
+				<field name="created_by" type="sql"
+					multiple="true" size="5"
+					label="MOD_ACCORDION_FIELD_AUTHOR_LABEL"
+					description="MOD_ACCORDION_FIELD_AUTHOR_DESC"
+					query="select id, name, username from #__users where id IN (select distinct(created_by) from #__content) order by name ASC"
+					key_field="id" value_field="name"
+				>
+					<option value="">JOPTION_SELECT_AUTHORS</option>
+				</field>
+
+				<field name="filteringspacer3" type="spacer" hr="true" />
+
+				<field name="author_alias_filtering_type" type="radio"
+					default="1"
+					label="MOD_ACCORDION_FIELD_AUTHORALIASFILTERING_LABEL"
+					description="MOD_ACCORDION_FIELD_AUTHORALIASFILTERING_DESC"
+				>
+					<option value="1">MOD_ACCORDION_OPTION_INCLUSIVE_VALUE
+					</option>
+					<option value="0">MOD_ACCORDION_OPTION_EXCLUSIVE_VALUE
+					</option>
+				</field>
+
+				<field name="created_by_alias" type="sql"
+					multiple="true" size="5"
+					label="MOD_ACCORDION_FIELD_AUTHORALIAS_LABEL"
+					description="MOD_ACCORDION_FIELD_AUTHORALIAS_DESC"
+					query="select distinct(created_by_alias) from #__content where created_by_alias != '' order by created_by_alias ASC"
+					key_field="created_by_alias" value_field="created_by_alias"
+				>
+					<option value="">JOPTION_SELECT_AUTHOR_ALIASES
+					</option>
+				</field>
+
+				<field name="filteringspacer4" type="spacer" hr="true" />
+
+				<field name="excluded_articles" type="textarea"
+					cols="10" rows="3"
+					label="MOD_ACCORDION_FIELD_EXCLUDEDARTICLES_LABEL"
+					description="MOD_ACCORDION_FIELD_EXCLUDEDARTICLES_DESC" />
+
+				<field name="filteringspacer5" type="spacer" hr="true" />
+
+				<field name="filteringspacer6" type="spacer" hr="true" />
+
+				<field name="date_filtering" type="radio" default="off"
+					label="MOD_ACCORDION_FIELD_DATEFILTERING_LABEL"
+					description="MOD_ACCORDION_FIELD_DATEFILTERING_DESC"
+				>
+					<option value="off">MOD_ACCORDION_OPTION_OFF_VALUE
+					</option>
+					<option value="range">MOD_ACCORDION_OPTION_DATERANGE_VALUE
+					</option>
+					<option value="relative">MOD_ACCORDION_OPTION_RELATIVEDAY_VALUE
+					</option>
+				</field>
+
+				<field name="date_field" type="list" default="a.created"
+					label="MOD_ACCORDION_FIELD_DATERANGEFIELD_LABEL"
+					description="MOD_ACCORDION_FIELD_DATERANGEFIELD_DESC"
+				>
+					<option value="a.created">MOD_ACCORDION_OPTION_CREATED_VALUE
+					</option>
+					<option value="a.modified">MOD_ACCORDION_OPTION_MODIFIED_VALUE
+					</option>
+					<option value="a.publish_up">MOD_ACCORDION_OPTION_STARTPUBLISHING_VALUE
+					</option>
+				</field>
+
+				<field name="start_date_range" type="calendar"
+					format="%Y-%m-%d %H:%M:%S"
+					label="MOD_ACCORDION_FIELD_STARTDATE_LABEL"
+					description="MOD_ACCORDION_FIELD_STARTDATE_DESC"
+					size="22"
+					filter="user_utc" />
+
+				<field name="end_date_range" type="calendar"
+					format="%Y-%m-%d %H:%M:%S"
+					label="MOD_ACCORDION_FIELD_ENDDATE_LABEL"
+					description="MOD_ACCORDION_FIELD_ENDDATE_DESC"
+					size="22"
+					filter="user_utc" />
+
+				<field name="relative_date" type="text" default="30"
+					label="MOD_ACCORDION_FIELD_RELATIVEDATE_LABEL"
+					description="MOD_ACCORDION_FIELD_RELATIVEDATE_DESC" />
+		</fieldset>
+
+		<fieldset name="ordering"
+				label="MOD_ACCORDION_FIELD_GROUP_ORDERING_LABEL"
+			>
+				<field name="article_ordering" type="list"
+					default="a.title"
+					label="MOD_ACCORDION_FIELD_ARTICLEORDERING_LABEL"
+					description="MOD_ACCORDION_FIELD_ARTICLEORDERING_DESC"
+				>
+					<option value="a.ordering">MOD_ACCORDION_OPTION_ORDERING_VALUE
+					</option>
+					<option value="a.hits">MOD_ACCORDION_OPTION_HITS_VALUE
+					</option>
+					<option value="a.title">JGLOBAL_TITLE
+					</option>
+					<option value="a.id">MOD_ACCORDION_OPTION_ID_VALUE
+					</option>
+					<option value="a.alias">JFIELD_ALIAS_LABEL
+					</option>
+					<option value="a.created">MOD_ACCORDION_OPTION_CREATED_VALUE
+					</option>
+					<option value="modified">MOD_ACCORDION_OPTION_MODIFIED_VALUE
+					</option>
+					<option value="publish_up">MOD_ACCORDION_OPTION_STARTPUBLISHING_VALUE
+					</option>
+					<option value="a.publish_down">MOD_ACCORDION_OPTION_FINISHPUBLISHING_VALUE
+					</option>
+				</field>
+
+				<field name="article_ordering_direction" type="list"
+					default="ASC"
+					label="MOD_ACCORDION_FIELD_ARTICLEORDERINGDIR_LABEL"
+					description="MOD_ACCORDION_FIELD_ARTICLEORDERINGDIR_DESC"
+				>
+					<option value="DESC">MOD_ACCORDION_OPTION_DESCENDING_VALUE
+					</option>
+					<option value="ASC">MOD_ACCORDION_OPTION_ASCENDING_VALUE
+					</option>
+				</field>
+		</fieldset>
+		<fieldset name="display"
+				label="MOD_ACCORDION_FIELD_GROUP_DISPLAY_LABEL"
+			>
+				<field name="item_heading" type="list" default="3"
+					label="MOD_ACCORDION_TITLE_HEADING"
+					description="MOD_ACCORDION_TITLE_HEADING_DESCRIPTION"
+				>
+					<option value="1">JH1</option>
+					<option value="2">JH2</option>
+					<option value="3">JH3</option>
+					<option value="4">JH4</option>
+					<option value="5">JH5</option>
+					<option value="6">JH6</option>
+				</field>
+
+				<field name="link_titles" type="radio" default="1"
+					label="MOD_ACCORDION_FIELD_LINKTITLES_LABEL"
+					description="MOD_ACCORDION_FIELD_LINKTITLES_DESC"
+				>
+					<option value="1">JYES
+					</option>
+					<option value="0">JNO
+					</option>
+				</field>
+
+				<field name="show_date" type="radio" default="1"
+					label="JDATE"
+					description="MOD_ACCORDION_FIELD_SHOWDATE_DESC"
+				>
+					<option value="1">JSHOW
+					</option>
+					<option value="0">JHIDE
+					</option>
+				</field>
+
+				<field name="show_date_field" type="list" default="created"
+					label="MOD_ACCORDION_FIELD_DATEFIELD_LABEL"
+					description="MOD_ACCORDION_FIELD_DATEFIELD_DESC"
+				>
+					<option value="created">MOD_ACCORDION_OPTION_CREATED_VALUE
+					</option>
+					<option value="modified">MOD_ACCORDION_OPTION_MODIFIED_VALUE
+					</option>
+					<option value="publish_up">MOD_ACCORDION_OPTION_STARTPUBLISHING_VALUE
+					</option>
+				</field>
+
+				<field name="show_date_format" type="text"
+					default="Y-m-d H:i:s"
+					label="MOD_ACCORDION_FIELD_DATEFIELDFORMAT_LABEL"
+					description="MOD_ACCORDION_FIELD_DATEFIELDFORMAT_DESC" />
+
+				<field name="show_category" type="radio" default="1"
+					label="JCATEGORY"
+					description="MOD_ACCORDION_FIELD_SHOWCATEGORY_DESC"
+				>
+					<option value="1">JSHOW
+					</option>
+					<option value="0">JHIDE
+					</option>
+				</field>
+
+				<field name="show_hits" type="radio" default="1"
+					label="MOD_ACCORDION_FIELD_SHOWHITS_LABEL"
+					description="MOD_ACCORDION_FIELD_SHOWHITS_DESC"
+				>
+					<option value="1">JSHOW
+					</option>
+					<option value="0">JHIDE
+					</option>
+				</field>
+
+				<field name="show_author" type="radio" default="1"
+					label="JAUTHOR"
+					description="MOD_ACCORDION_FIELD_SHOWAUTHOR_DESC"
+				>
+					<option value="1">JSHOW
+					</option>
+					<option value="0">JHIDE
+					</option>
+				</field>
+
+				<field name="show_introtext" type="radio" default="1"
+					label="MOD_ACCORDION_FIELD_SHOWINTROTEXT_LABEL"
+					description="MOD_ACCORDION_FIELD_SHOWINTROTEXT_DESC"
+				>
+					<option value="1">JSHOW
+					</option>
+					<option value="0">JHIDE
+					</option>
+				</field>
+				<field
+					name="show_readmore"
+					label="JGLOBAL_SHOW_READMORE_LABEL"
+					description="JGLOBAL_SHOW_READMORE_DESC"
+					type="radio"
+					default="1"
+				>
+					<option value="1">JSHOW
+					</option>
+					<option value="0">JHIDE
+					</option>
+				</field>
+
+				<field
+					name="show_readmore_title"
+					label="JGLOBAL_SHOW_READMORE_TITLE_LABEL"
+					description="JGLOBAL_SHOW_READMORE_TITLE_DESC"
+					type="radio"
+					default="0"
+				>
+					<option value="1">JSHOW</option>
+					<option value="0">JHIDE</option>
+				</field>
+
+				<field
+					name="readmore_limit"
+					type="text"
+					default="15"
+					label="JGLOBAL_SHOW_READMORE_LIMIT_LABEL"
+					description="JGLOBAL_SHOW_READMORE_LIMIT_DESC"
+				/>
+		</fieldset>
+		 <fieldset name="JOOMSHOPPINGSETTING">
+			<field name="source_setting"
+					type="loflabel"
+					label=""
+					title="SOURCE_SETTING"
+					description="SOURCE_SETTING_DESC"/>
+			<field name="source_from" label="SOURCE_FROM" default="cat_ids" description="SOURCE_FROM_DESC" type="list">
+					<option value="cat_ids">CATEGORIES</option>
+					<option value="actual_cat">Actual Category</option>
+					<option value="product_ids">Product Ids</option>
+					<option value="product_label">PRODUCT_LABEL</option>
+					<option value="manufactures">Manufactures</option>
+			</field>
+			<field name="jproduct_ids" class="product_ids" type="text" size="40" label="PRODUCT_IDS" description="PRODUCT_IDS_DESC"/>
+			<field name="jcat_ids" class="cat_ids" type="lofjcategory" label="CATEGORIES" description="CATEGORIES_DESC" multiple="true"/>
+			<field name="jmanufactures" class="manufactures" size="5" type="lofmanufacture" label="MANUFACTURES" multiple="true" description="MANUFACTURES_DESC"/>
+			<field name="jproduct_label" class="product_label" size="5" type="lofproductlabel" label="PRODUCT_LABEL" multiple="true" description="PRODUCT_LABEL_DESC"/>
+			<field name="filtering_type" type="radio"
+					default="1"
+					label="MOD_ACCORDION_FILTER_LABEL"
+					description="MOD_ACCORDION_FILTER_DESC"
+				>
+					<option value="1">MOD_ACCORDION_OPTION_INCLUSIVE_VALUE
+					</option>
+					<option value="0">MOD_ACCORDION_OPTION_EXCLUSIVE_VALUE
+					</option>
+			</field>
+			 <field 
+					name="sorting_setting"
+					type="loflabel"
+					label=""
+					title="SORTING_SETTING"
+					description="SORTING_SETTING_DESC"/>
+			 <field name="sort_product" label="SORT_PRODUCTS" default="" description="SORT_PRODUCTS_DESC" type="list">
+					<option value="price__asc">Lowest_First</option>
+					<option value="price__desc">Highest_First</option>
+					<option value="date__desc">Newest_First</option>
+					<option value="date__asc">Oldest_First</option>
+					<option value="most_sold">Most_sold_Products</option>
+					<option value="latest_sold">Latest_Sold_Products</option>
+					<option value="most_rate">Most_Rated_Products</option>
+					<option value="most_comment">Most_Commented_Products</option>
+					<option value="name__asc">Name_Acceding</option>
+					<option value="name__desc">Name_Descending</option>
+					<option value="random">Random</option>
+			</field>
+			
+			<field name="display_setting"
+					type="loflabel"
+					label=""
+					title="DISPLAY_SETTING"
+					description="DISPLAY_SETTING_DESC"/>
+				<field name="preview_width" type="text" default="200" label="PREVIEW_IMAGE_WIDTH" description="PREVIEW_IMAGE_WIDTH_DESC"/>
+				<field name="preview_height" type="text" default="200" label="PREVIEW_IMAGE_HEIGHT" description="PREVIEW_IMAGE_HEIGHT_DESC"/>
+				<field name="show_preview" type="radio" default="1" label="SHOW_PREVIEW_IMAGE" description="SHOW_PREVIEW_IMAGE_DESC">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+				<field name="show_product_image" type="radio" default="1" label="SHOW_PRODUCT_IMAGE" description="SHOW_PRODUCT_IMAGE_DESC">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+				<field name="show_image_label" type="radio" default="1" label="SHOW_IMAGE_LABEL" description="SHOW_IMAGE_LABEL_DESC">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+				<field name="show_rating" type="radio" default="1" label="SHOW_RATING" description="SHOW_RATING_DESC">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+				<field name="show_description" type="radio" default="1" label="SHOW_DESCRIPTION" description="SHOW_DESCRIPTION_DESC">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+				<field name="show_old_price" type="radio" default="1" label="SHOW_OLD_PRICE" description="SHOW_OLD_PRICE_DESC">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+				<field name="show_price" type="radio" default="1" label="SHOW_PRICE" description="SHOW_PRICE_DESC">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+			</fieldset>
+			<fieldset name="IPSETTING">	
+				<field name="ip_source_setting"
+					type="loflabel"
+					label=""
+					title="SOURCE_SETTING"
+					description="SOURCE_SETTING_DESC"/>
+			<field name="ip_source_from" label="SOURCE_FROM" default="ip_cat_ids" description="SOURCE_FROM_DESC" type="list">
+					<option value="ip_cat_ids">CATEGORIES</option>
+					<option value="ip_agents">AGENTS</option>
+					<option value="ip_companies">COMPANIES</option>
+			</field>
+			 <field name="ip_cat_ids" class="ip_cat_ids" type="ipcategory" default="0" multiple="1" label="MOD_IP_FEATURED_CATID" description="MOD_IP_FEATURED_CATID_DESC" />
+			 <field name="ip_agents" class="ip_agents" type="agent" default="0" multiple="1" label="MOD_IP_AGENTS" description="MOD_IP_AGENTS_DESC" />
+			 <field name="ip_companies" class="ip_companies" type="company" default="0" multiple="1" label="MOD_IP_COMPANIES" description="MOD_IP_COMPANIES_DESC" />
+			<field name="ip_filtering_type" type="radio"
+					default="1"
+					label="MOD_ACCORDION_FILTER_LABEL"
+					description="MOD_ACCORDION_FILTER_DESC"
+				>
+					<option value="1">MOD_ACCORDION_OPTION_INCLUSIVE_VALUE
+					</option>
+					<option value="0">MOD_ACCORDION_OPTION_EXCLUSIVE_VALUE
+					</option>
+			</field>
+			
+			 <field name="ip_sort_product" label="SORT_PRODUCTS" default="hits__desc" description="SORT_PRODUCTS_DESC" type="list">
+					<option value="hits__desc">Most viewed Properties </option>
+					<option value="price__desc">Highest_First</option>
+					<option value="price__asc">Lowest_First</option>
+					<option value="created__desc">Newest_First</option>
+					<option value="created__asc">Oldest_First</option>
+					<option value="sqft__desc">Square FT - Bigger First</option>
+					<option value="sqft__asc">Square FT - Smaller First</option>
+					<option value="title__asc">Title - Acceding</option>
+					<option value="title__desc">Title - Descending</option>
+					<option value="random">Random</option>
+			</field>
+			<field name="ip_display_setting"
+					type="loflabel"
+					label=""
+					title="IP_DISPLAY_SETTING"
+					description="IP_DISPLAY_SETTING_DESC"/>
+			<field name="ip_preview_width" type="text" default="200" label="PREVIEW_IMAGE_WIDTH" description="PREVIEW_IMAGE_WIDTH_DESC"/>
+			<field name="ip_preview_height" type="text" default="200" label="PREVIEW_IMAGE_HEIGHT" description="PREVIEW_IMAGE_HEIGHT_DESC"/>
+			<field name="ip_show_preview" type="radio" default="1" label="SHOW_PREVIEW_IMAGE" description="SHOW_PREVIEW_IMAGE_DESC">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+			</field>
+				<field name="ip_show_title" type="radio" default="1" label="SHOW_IP_TITLE" description="SHOW_IP_TITLE_DESC">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+				<field name="ip_show_image" type="radio" default="1" label="SHOW_IP_IMAGE" description="SHOW_IP_IMAGE_DESC">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+				<field name="ip_show_banner" type="radio" default="1" label="SHOW_IP_BANNER" description="SHOW_IP_BANNER_DESC">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+				<field name="ip_show_office" type="radio" default="1" label="SHOW_IP_OFFICE" description="SHOW_IP_OFFICE_DESC">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+				<field name="ip_show_saletype" type="radio" default="1" label="SHOW_IP_SALE_TYPE" description="SHOW_IP_SALE_TYPE_DESC">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+				<field name="ip_show_originalprice" type="radio" default="1" label="SHOW_IP_ORIGINAL_PRICE" description="SHOW_IP_ORIGINAL_PRICE_DESC">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+				<field name="ip_show_price" type="radio" default="1" label="SHOW_IP_PRICE" description="SHOW_IP_PRICE_DESC">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+				<field name="ip_show_category" type="radio" default="1" label="SHOW_IP_CATEGORY" description="SHOW_IP_CATEGORY_DESC">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+				<field name="ip_show_agent" type="radio" default="1" label="SHOW_IP_AGENT" description="SHOW_IP_AGENT_DESC">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+				<field name="ip_show_previewtext" type="radio" default="1" label="SHOW_IP_PREVIEW_TEXT" description="SHOW_IP_PREVIEW_TEXT_DESC">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+				<field name="ip_show_streetnumber" type="radio" default="1" label="SHOW_IP_STREET_NUMBER" description="SHOW_IP_STREET_NUMBER_DESC">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+				<field name="ip_show_street" type="radio" default="1" label="SHOW_IP_STREET" description="SHOW_IP_STREET_DESC">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+				<field name="ip_show_city" type="radio" default="1" label="SHOW_IP_CITY" description="SHOW_IP_CITY_DESC">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+				<field name="ip_show_postcode" type="radio" default="1" label="SHOW_IP_POST_CODE" description="SHOW_IP_POST_CODE_DESC">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+				<field name="ip_show_state" type="radio" default="1" label="SHOW_IP_STATE" description="SHOW_IP_STATE_DESC">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+				<field name="ip_show_province" type="radio" default="1" label="SHOW_IP_PROVINCE" description="SHOW_IP_PROVINCE_DESC">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+				<field name="ip_show_country" type="radio" default="1" label="SHOW_IP_COUNTRY" description="SHOW_IP_COUNTRY_DESC">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+				<field name="ip_show_beds" type="radio" default="1" label="SHOW_IP_BEDS" description="SHOW_IP_BEDS_DESC">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+				<field name="ip_show_baths" type="radio" default="1" label="SHOW_IP_BATHS" description="SHOW_IP_BATHS_DESC">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+				<field name="ip_show_surface" type="radio" default="1" label="SHOW_IP_SURFACE" description="SHOW_IP_SURFACE_DESC">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+				<field name="ip_show_lottype" type="radio" default="1" label="SHOW_IP_LOT_TYPE" description="SHOW_IP_LOT_TYPE_DESC">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+				
+		 </fieldset>
+			<fieldset name="ITEM_SETTING">
+				<field 
+					name="limit_items" 
+					type="text" 
+					default="5" 
+					title="LIMIT_ITEMS" 
+					description="LIMIT_ITEMS_DESC" />
+				<field 
+					name="number_page"
+					type="list" 
+					default="0" 
+					label="NUMBER_PAGE" 
+					description="NUMBER_PAGE_DESC">
+					  <option value="1">No Slides</option>
+					  <option value="2">2</option>
+					  <option value="3">3</option>
+					  <option value="4">4</option>
+					  <option value="4">5</option>
+				</field>
+					
+				<field 
+					name="title_max_chars" 
+					type="text" 
+					default="100" 
+					label="TITLE_MAX_CHARS" 
+					description="TITLE_MAX_CHARS_DESC" />
+				<field 
+					name="description_max_chars" 
+					type="text" 
+					default="100" 
+					label="DESCIPTION_MAX_CHARS" 
+					description="DESCIPTION_MAX_CHARS_DESC" />
+				<field 
+					name="default_item" 
+					type="text" 
+					default="0" 
+					label="DEFAULT_ITEM_EXPAND" 
+					description="DEFAULT_ITEM_EXPAND_DESC">
+				</field>
+
+					<field name="" type="spacer" default="" label="" description="" />
+					<field name="" type="spacer" default="" label="" description="" />
+				
+				<field 
+					name="show_readmore" 
+					type="radio" 
+					default="1" 
+					label="REAMORE_SHOW" 
+					description="REAMORE_SHOW_DESC">
+						<option value="0">NO</option>
+						<option value="1">YES</option>
+				</field>	
+		</fieldset>
+		<fieldset 
+			name="advanced">
+			<field 
+				name="moduleclass_sfx" 
+				type="text" 
+				default="" 
+				label="MODULE_CLASS_SUFFIX" 
+				description="PARAMMODULECLASSSUFFIX" />	
+				
+				<field name="" type="spacer" default="" label="" description="" />
+			<field name="" type="spacer" default="" label="" description="" />
+					
+					
+			<field 
+				name="enable_cache"
+				type="list" 
+				default="0" 
+				label="CACHING" 
+				description="CACHING_DESC">
+					<option value="1">Use Cache Data</option>
+					<option value="0">Don't cache</option>
+				</field>
+				<field 
+					name="cache_time" 
+					type="text" 
+					default="15" 
+					label="CACHE_TIME"
+					description="CACHE_TIME_DESC" />
+		
+		</fieldset>
+
+	</fields>
+	
+	
+
+	</config>	
+</extension>

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<install 
+	version="1.6.0" 
+	type="plugin" 
+	group="system"
+	method="upgrade">
+	<name>System - Ice Speed</name>
+	<author>IceTheme</author>
+	<creationDate>May 2010</creationDate>
+	<copyright>Copyright (C) 2010 IceTheme</copyright>
+	<license>Copyrighted Commercial Software</license>
+	<authorEmail>info@icetheme.com</authorEmail>
+	<authorUrl>http://www.icetheme.com</authorUrl>
+	<version>1.0.0</version>
+	<description>
+	<![CDATA[
+		IceSpeed Plugin decrease the loading time of your website by compressing, optimizing, merging CSS and JavaScript on your website.
+	]]>
+</description>
+	<files>
+		<filename plugin="ice_speed">ice_speed.php</filename>
+		<filename plugin="ice_speed">CHANGELOG.php</filename>
+		<filename plugin="ice_speed">LICENSE.php</filename>
+		<folder>ice_speed</folder>
+		<filename>ice_speed.xml</filename>
+	</files>
+	<languages>
+		<language tag="en-GB">languages/en-GB.plg_system_ice_speed.ini</language>
+	</languages>
+	<config>
+		<fields 
+			name="params" 
+			addfieldpath="/plugins/system/ice_speed/ice_speed/element">
+			<fieldset 
+				name="basic">
+			<field 
+					type="ftitle" 
+					name="csssetting"
+					title="OPTIMIZE_JS_CSS_SETTING" 
+					label=""/>
+				<field name="optimize_engine" type="radio" default="minify" label="OPTIMIZE_ENGINE" description="OPTIMIZE_ENGINE_DESC">
+					<option value="minify">MINIFY_ENGINE</option>
+				</field>				
+				<field name="use_yui" type="radio" default="1" label="USE_YUICOMPRESSOR" description="USE_YUICOMPRESSOR_DESC">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+				
+				<field name="optimize_html" type="radio" default="0" label="OPTIMIZE_HTML" description="OPTIMIZE_HTML_DESC">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+				
+				<field name="spacer1" type="spacer" hr="true" />
+				
+				<field name="optimize_css" type="list" default="compress" label="OPTIMIZE_CSS" description="OPTIMIZE_CSS_DESC">
+					<option value="0">No</option>
+					<option value="compress">ONLY_COMPRESS</option>
+					<option value="merge">ONLY_MERGE</option>
+					<option value="compress_merge">COMPRESS_MERGE</option>
+				</field>
+				<field name="exclude_css" type="itaddrow" label="EXCLUDE_CSS_FILES" description="EXCLUDE_CSS_FILES_DESC" />
+				<field name="add_cssfiles" type="itaddrow" label="ADD_CSS_FILES" description="ADD_CSS_FILES_DESC" />
+				
+				<field name="spacer2" type="spacer" hr="true" />
+				
+				<field name="optimize_js" type="list" default="compress" label="OPTIMIZE_JS" description="ENABLE_OPTIMIZE_JS_DESC">
+					<option value="0">No</option>
+					<option value="compress">ONLY_COMPRESS</option>
+					<option value="merge">ONLY_MERGE</option>
+					<option value="compress_merge">COMPRESS_MERGE</option>
+				</field>
+				<field name="exclude_js" type="itaddrow" label="EXCLUDE_JS_FILES" description="EXCLUDE_JS_FILES_DESC" />
+				<field name="add_jsfiles" type="itaddrow" label="ADD_JS_FILES" description="ADD_JS_FILES_DESC" />
+				<field name="order_jsfiles" type="hidden" label="CUSTOM_ORDER_JS_FILES" description="CUSTOM_ORDER_JS_FILES_DESC" />
+				
+				<field name="spacer3" type="spacer" hr="true" />
+				
+				<field name="enable_gzip" type="radio" default="0" label="ENABLE_GZIP" description="ENABLE_GZIP_DESC">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+				
+					<field name="lazy_load" type="radio" default="0" label="LAZY_LOAD_FEATURE" description="LAZY_LOAD_FEATURE_DESC">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+				<field name="container_lazy" type="text" default="" label="CONTAINER_LAZY" description ="CONTAINER_LAZY_DESC"/>
+				<field 
+					type="ftitle" 
+					name="pagecachesetting"
+					label=""
+					title="PAGE_CACHE_SETTING" />
+				
+					
+
+				<field name="enable_cache" type="radio" default="0" label="Enable cache" description="ENABLE_PAGE_CACHE_DESC">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+				
+				<!--<field name="enable_pagecache" type="radio" default="0" label="ENABLE_PAGE_CACHE" description="ENABLE_PAGE_CACHE_DESC">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+				<field name="browsercache" type="radio" default="0" label="USER_BROWSER_CACHING" description="If yes, use mechanism for storing page cache in the browser">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>-->
+				
+				<field name="cachetime" type="text" default="15" label="CACHE_LIFETIME" description="Page cache lifetime in minutes"/>
+				<field name="menu" type="menuitem" default="" label="MENU_CACHE_ASIGMENT" description="MENU_CACHE_ASIGMENT_DESC" mulitple="true"/>
+				<field name="button_clearcache" type="list" default="allow_admin" label="BUTTON_PERMISSION_CLEAR_CACHE" description="BUTTON_CLEAR_CACHE_DESC">
+					<option value="0">DISABLE</option>
+					<option value="allow_admin">SHOW_ONLY_ADMINISTRATOR_ACCESS_LINK</option>
+					<option value="allow_frontend">SHOW_ALLOW_FONTEND_ACCESS_LINK</option>
+				</field>
+				<field name="token" default="ice" type="text" label="TOKEN_KEY" description="TOKEN_KEY_DESC" />
+			</fieldset>
+		</fields>
+	</config>
+</install>

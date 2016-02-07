@@ -1,0 +1,161 @@
+
+/*---------------------------------------------------------------- 
+  Copyright:
+  (C) 2008 - 2011 IceTheme
+  
+  License:
+  GNU/GPL http://www.gnu.org/copyleft/gpl.html
+  
+  Author:
+  IceTheme - http://wwww.icetheme.com
+---------------------------------------------------------------- */
+
+#ice-caption_wrapper {
+	position:relative;
+	padding:38px 0 28px}
+
+
+.ice-caption-container { }
+
+	#ice-caption-slide {
+		height: 100%;
+		margin:0;
+		position: relative;
+		width: 10000%!important;}
+
+		.ice-caption { 
+			width: 100%;
+			font-size:1em;
+			overflow: hidden; 
+			position: relative;
+			border:1px solid #eee;
+			margin:0;}	
+			
+		
+			.ice-caption a {
+				color:#fff;
+				cursor:pointer;
+				text-decoration:none;}
+				
+	
+		.ice-caption-cover {
+			float: left; 
+			position: absolute; 
+			width: 100%;
+			z-index:3;
+			overflow: hidden;
+			left:0; 
+			bottom:0;}
+			
+	
+		.ice-caption-content {
+			position: absolute; 
+			top: 0;
+			z-index:99999;
+			height: 100%;
+			width:100%;}
+	
+	
+		.ice-caption .ice-opacity {
+			background:#333;}
+	
+	
+			.ice-caption .ice-infor { 
+				color:#fff;
+				border-top:1px solid rgba(255,255,255,.2);	
+				padding:.25em .5em;}
+	
+	
+				.ice-caption .ice-title { 
+					padding:0;
+					font-size:1.1em;
+					margin-bottom:0;
+					font-family:Verdana, Geneva, sans-serif;
+					line-height:1.7em;
+					color:#fff;} 
+					
+				.ice-caption .ice-desc {
+					padding-top:0;
+					line-height:1.55em;
+					color:#999;}
+					
+					
+	
+/* horizontal style*/
+.ice-caption-horizontal {
+	position:relative;
+	overflow:hidden;}
+	.ice-caption-horizontal .ice-caption {
+		float:left;	}
+		
+/* vertical style*/
+.ice-caption-vertical {
+	position:relative;
+	overflow:hidden;}
+	.ice-caption-vertical .ice-caption {
+		margin:0 0 10px}
+	
+	
+
+/* Arrows Next and Previous */
+#ice-caption-previous,
+#ice-caption-next {
+	background: url(images/arrows.png) no-repeat scroll 0 0 transparent;
+	position:absolute;
+	text-indent:-9999em;
+	left:40%;
+	z-index:10;
+	margin:0px;
+	cursor:hand; 
+	cursor:pointer;
+	width:35px;
+	height:30px;
+	cursor:hand; 
+	cursor:pointer;
+	opacity:.3;
+	-webkit-transition:all .5s ease-out;
+	-moz-transition:all .5s ease-out;
+	-o-transition:all .5s ease-out;
+	transition:all .5s ease-out;}
+	
+		#ice-caption-previous {	
+			background-position:0 0;
+			top:0;
+			right:auto;}
+			
+		#ice-caption-next {
+			background-position:0 -30px;
+			top:auto;
+			bottom:0;}
+			
+			
+		#ice-caption-next:hover,
+		#ice-caption-previous:hover{ 
+			opacity:1;}
+			
+		/* fix icecaption arrows if the resolutin (width) is lower than 1024px */	
+		.narrow-window #ice-caption-next { right:20px}	
+		.narrow-window #ice-caption-previous { left:75px}
+			
+		
+		/* Arrows Next and Previous on the Vertical Mode */	
+		.ice-caption-vertical #ice-caption-previous,
+		.ice-caption-vertical #ice-caption-next {
+			background: url(images/arrows_v.png) no-repeat scroll 0 0 transparent;
+			position:absolute;
+			text-indent:-9999em;
+			left:38%;
+			z-index:10;
+			margin:0px;
+			cursor:hand; 
+			cursor:pointer;
+			width:50px;
+			height:30px;}
+			
+		   .ice-caption-vertical #ice-caption-previous {
+				top:0;}
+			
+			.ice-caption-vertical #ice-caption-next {
+				background-position:bottom;
+				top:auto;
+				bottom:0;}	

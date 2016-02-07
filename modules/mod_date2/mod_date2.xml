@@ -1,0 +1,555 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="1.7" client="site" method="upgrade">
+	<name>Date2</name>
+	<creationDate>Fri, 11 Nov 2011 17:09:36 GMT</creationDate>
+	<author>Ryan Rhode</author>
+	<authorEmail>admin@ty2u.com</authorEmail>
+	<authorUrl>ty2u.com</authorUrl>
+	<copyright>(C) 2007-2011 Ryan Rhode</copyright>
+	<license>http://www.gnu.org/copyleft/gpl.html GNU/GPL</license>
+	<version>2.2.31beta2</version>
+	<description><![CDATA[
+	This module shows the current time and date.<br /><b>Be sure to configure the module parameters to your liking.</b><br /><br /><div class='message' style='text-align:left;'><div class='icon-16-info' style='width:16px;height:16px;float:left;'></div>CSS Styles have been moved into the Display settings and WYSIWYG editors have been added to the pre-text and post-text boxes.</div><br /><div><b>Information:</b></div><div>Date and Time Module Documentation: <a href='http://ty2u.com/date-and-time' target='_blank'>http://ty2u.com/date-and-time</a></div><div>Daylight Saving Time / Summer Time: <a href='http://en.wikipedia.org/wiki/Daylight_saving_time' target='_blank'>http://en.wikipedia.org/wiki/Daylight_saving_time</a></div><div>ISO 8601 Format: <a href='http://en.wikipedia.org/wiki/ISO_8601' target='_blank'>http://en.wikipedia.org/wiki/ISO_8601</a></div><div>HTML Entities: <a href='http://www.w3schools.com/HTML/html_entities.asp' target='_blank'>http://www.w3schools.com/HTML/html_entities.asp</a></div>
+	]]>
+	</description>
+	<updateservers>
+		<server name="Date and Time" type="extension">http://ty2u.com/updates/modules/date/</server>
+	</updateservers>
+	<files>
+		<filename module="mod_date2">mod_date2.php</filename>
+		<folder>tmpl</folder>
+		<folder>fields</folder>
+		<filename>helper.php</filename>
+		<filename>index.html</filename>
+		<filename>license.txt</filename>
+		<filename>ty2udate.js</filename>
+		<filename>mod_date2.xml</filename>
+		<filename>changelog.php</filename>
+		<filename>en-GB.mod_date2.ini</filename>
+		<filename>class.JavaScriptPacker.php</filename>
+	</files>
+	<languages>
+		<language tag="en-GB">en-GB.mod_date2.ini</language>
+	</languages>
+	<config>
+		<fields name="params" addfieldpath="/modules/mod_date2/fields">
+			<fieldset name="MOD_DATE2_JOOMLA_OPTIONS">
+				<field name="load" type="load" label="" />
+				<field name="moduleclass_sfx" type="text" default="" label="MOD_DATE2_MODULE_SUFFIX" description="MOD_DATE2_PARAMMODULECLASSSUFFIX" />
+				<field name="cache" type="list" default="0" label="MOD_DATE2_CACHING" description="MOD_DATE2_DESC_CACHING">
+					<option value="1">MOD_DATE2_USE_GLOBAL</option>
+					<option value="0">MOD_DATE2_NO_CACHING</option>
+				</field>
+				<field name="cache_time" type="text" default="900" label="MOD_DATE2_CACHE_TIME" description="MOD_DATE2_DESC_CACHE_TIME" />
+			</fieldset>
+			<fieldset name="MOD_DATE2_SYSTEM_OUTPUT">
+				<field name="compress" type="list" default="0" label="MOD_DATE2_COMPRESS" description="MOD_DATE2_DESC_COMPRESS">
+					<option value="0">MOD_DATE2_OPT_NONE</option>
+					<option value="62">MOD_DATE2_OPT_NORMAL</option>
+				</field>
+			</fieldset>
+			<fieldset name="MOD_DATE2_GENERATION_METHOD">
+				<field name="method" type="list" default="0" label="MOD_DATE2_METHOD_LABEL" description="MOD_DATE2_DESC_METHOD">
+					<option value="0">MOD_DATE2_JAVASCRIPT</option>
+					<option value="1">MOD_DATE2_PHP</option>
+				</field>
+			</fieldset>
+			<fieldset name="MOD_DATE2_DESC_PRETEXT">
+				<field name="pretext" type="editor" width="250" filter="raw" label="MOD_DATE2_PRETEXT" description="MOD_DATE2_DESC_PRETEXT" />
+			</fieldset>
+			<fieldset name="MOD_DATE2_DESC_POSTTEXT">
+				<field name="posttext" type="editor" width="250" filter="raw" label="MOD_DATE2_POSTTEXT" description="MOD_DATE2_DESC_POSTTEXT" />
+			</fieldset>
+			<fieldset name="MOD_DATE2_DISPLAY">
+				<field name="styles" type="textarea" rows="8" cols="40" default="" label="MOD_DATE2_STYLES" description="MOD_DATE2_DESC_STYLES" />
+				<field name="order" type="list" default="0" label="MOD_DATE2_DISPLAY_ORDER" description="MOD_DATE2_DESC_DISPLAY_ORDER">
+					<option value="0">MOD_DATE2_OPT_DATEFIRST</option>
+					<option value="1">MOD_DATE2_OPT_TIMEFIRST</option>
+				</field>
+				<field name="align" type="list" default="0" label="MOD_DATE2_ALIGNMENT" description="MOD_DATE2_DESC_ALIGNMENT">
+					<option value="0">MOD_DATE2_OPT_NONE</option>
+					<option value="1">MOD_DATE2_OPT_LEFT</option>
+					<option value="2">MOD_DATE2_OPT_CENTER</option>
+					<option value="3">MOD_DATE2_OPT_RIGHT</option>
+				</field>
+				<field name="seplines" type="list" default="0" label="MOD_DATE2_SEPLINES" description="MOD_DATE2_DESC_SEPLINES">
+					<option value="0">MOD_DATE2_OPT_SEPLINES</option>
+					<option value="1">MOD_DATE2_OPT_SAMELINE</option>
+				</field>
+			</fieldset>
+			<fieldset name="MOD_DATE2_DATE">
+				<field name="showdate" type="list" default="0" label="MOD_DATE2_SHOWDATE" description="MOD_DATE2_DESC_SHOWDATE">
+					<option value="0">MOD_DATE2_OPT_YES</option>
+					<option value="1">MOD_DATE2_OPT_NO</option>
+				</field>
+				<field name="predate" type="text" default="" label="MOD_DATE2_DATE_PREFIX" description="MOD_DATE2_DESC_DATE_PREFIX" />
+				<field name="postdate" type="text" default="" label="MOD_DATE2_DATE_SUFFIX" description="MOD_DATE2_DESC_DATE_SUFFIX" />
+				<field name="dateorder" type="text" default="w,d,m,y" label="MOD_DATE2_DATEORDER" description="MOD_DATE2_DESC_DATEORDER" />
+				<field name="ISO8601" type="list" default="0" label="MOD_DATE2_ISO8601_LABEL" description="MOD_DATE2_DESC_ISO8601">
+					<option value="0">MOD_DATE2_OPT_NO</option>
+					<option value="1">MOD_DATE2_OPT_YES</option>
+				</field>
+			</fieldset>
+			<fieldset name="MOD_DATE2_TIME">
+				<field name="showtime" type="list" default="0" label="MOD_DATE2_SHOWTIME" description="MOD_DATE2_DESC_SHOWTIME">
+					<option value="0">MOD_DATE2_OPT_YES</option>
+					<option value="1">MOD_DATE2_OPT_NO</option>
+				</field>
+				<field name="pretime" type="text" default="" label="MOD_DATE2_TIME_PREFIX" description="MOD_DATE2_DESC_TIME_PREFIX" />
+				<field name="posttime" type="text" default="" label="MOD_DATE2_TIME_SUFFIX" description="MOD_DATE2_DESC_TIME_SUFFIX" />
+				<field name="useuserzone" type="list" default="0" label="MOD_DATE2_USERZONE" description="MOD_DATE2_DESC_USERZONE">
+					<option value="1">MOD_DATE2_OPT_YES</option>
+					<option value="0">MOD_DATE2_OPT_NO</option>
+				</field>
+				<field name="zone" type="timezone" default="" label="MOD_DATE2_JS_OFFSET" description="MOD_DATE2_DESC_JS_OFFSET" />
+				<field name="phpzone" type="text" default="0" label="MOD_DATE2_PHP_OFFSET" description="MOD_DATE2_DESC_PHP_OFFSET" />
+				<field name="dst" type="list" default="0" label="MOD_DATE2_AUTO_DST" description="MOD_DATE2_DESC_AUTO_DST">
+					<option value="0">MOD_DATE2_OPT_OFF</option>
+					<option value="1">MOD_DATE2_OPT_ON</option>
+				</field>
+				<field name="dston" type="text" default="March 14, 1999 2:59:59" label="MOD_DATE2_DST_BEGINS" description="MOD_DATE2_DESC_DST_BEGINS" />
+				<field name="dstoff" type="text" default="November 7, 1999 2:59:59" label="MOD_DATE2_DST_ENDS" description="MOD_DATE2_DESC_DST_ENDS" />
+				<field name="military" type="list" default="1" label="MOD_DATE2_USE_MILITARY" description="MOD_DATE2_DESC_USE_MILITARY">
+					<option value="0">MOD_DATE2_OPT_YES</option>
+					<option value="1">MOD_DATE2_OPT_NO</option>
+				</field>
+				<field name="hours" type="list" default="0" label="MOD_DATE2_SHOW_HOURS" description="MOD_DATE2_DESC_SHOW_HOURS">
+					<option value="0">MOD_DATE2_OPT_YES</option>
+					<option value="1">MOD_DATE2_OPT_NO</option>
+				</field>
+				<field name="minutes" type="list" default="0" label="MOD_DATE2_SHOW_MINUTES" description="MOD_DATE2_DESC_SHOW_MINUTES">
+					<option value="0">MOD_DATE2_OPT_YES</option>
+					<option value="1">MOD_DATE2_OPT_NO</option>
+				</field>
+				<field name="seconds" type="list" default="0" label="MOD_DATE2_SHOW_SECONDS" description="MOD_DATE2_DESC_SHOW_SECONDS">
+					<option value="0">MOD_DATE2_OPT_YES</option>
+					<option value="1">MOD_DATE2_OPT_NO</option>
+				</field>
+				<field name="ampm" type="list" default="0" label="MOD_DATE2_SHOW_AMPM" description="MOD_DATE2_DESC_SHOW_AMPM">
+					<option value="0">MOD_DATE2_OPT_YES</option>
+					<option value="1">MOD_DATE2_OPT_NO</option>
+				</field>
+				<field name="amtext" type="text" default="am" label="MOD_DATE2_TEXT_AM" description="MOD_DATE2_DESC_TEXT_AM" />
+				<field name="pmtext" type="text" default="pm" label="MOD_DATE2_TEXT_PM" description="MOD_DATE2_DESC_TEXT_PM" />
+			</fieldset>
+			<fieldset name="MOD_DATE2_SEPARATORS">
+				<field name="sepweek1d" type="list" default="" label="MOD_DATE2_SEPWEEK1D" description="MOD_DATE2_DESC_SEPWEEK1D">
+					<option value="0">MOD_DATE2_OPT_NONE</option>
+					<option value="&#160;">MOD_DATE2_OPT_SEP1</option>
+					<option value="&#58;">MOD_DATE2_OPT_SEP2</option>
+					<option value="&#45;">MOD_DATE2_OPT_SEP3</option>
+					<option value="&#43;">MOD_DATE2_OPT_SEP4</option>
+					<option value="&#47;">MOD_DATE2_OPT_SEP5</option>
+					<option value="&#92;">MOD_DATE2_OPT_SEP6</option>
+					<option value="&#40;">MOD_DATE2_OPT_SEP7</option>
+					<option value="&#41;">MOD_DATE2_OPT_SEP8</option>
+					<option value="&#91;">MOD_DATE2_OPT_SEP9</option>
+					<option value="&#93;">MOD_DATE2_OPT_SEP10</option>
+					<option value="&#60;">MOD_DATE2_OPT_SEP11</option>
+					<option value="&#62;">MOD_DATE2_OPT_SEP12</option>
+					<option value="&#46;">MOD_DATE2_OPT_SEP13</option>
+					<option value="&#44;">MOD_DATE2_OPT_SEP14</option>
+					<option value="&#166;">MOD_DATE2_OPT_SEP15</option>
+					<option value="&#126;">MOD_DATE2_OPT_SEP16</option>
+					<option value="&lt;br /&gt;">MOD_DATE2_OPT_SEP17</option>
+				</field>
+				<field name="sepweek1" type="text" default="" label="MOD_DATE2_SEPWEEK1" description="MOD_DATE2_DESC_SEPWEEK1" />
+				<field name="sepweek2d" type="list" default="," label="MOD_DATE2_SEPWEEK2D" description="MOD_DATE2_DESC_SEPWEEK2D">
+					<option value="0">MOD_DATE2_OPT_NONE</option>
+					<option value="&#160;">MOD_DATE2_OPT_SEP1</option>
+					<option value="&#58;">MOD_DATE2_OPT_SEP2</option>
+					<option value="&#45;">MOD_DATE2_OPT_SEP3</option>
+					<option value="&#43;">MOD_DATE2_OPT_SEP4</option>
+					<option value="&#47;">MOD_DATE2_OPT_SEP5</option>
+					<option value="&#92;">MOD_DATE2_OPT_SEP6</option>
+					<option value="&#40;">MOD_DATE2_OPT_SEP7</option>
+					<option value="&#41;">MOD_DATE2_OPT_SEP8</option>
+					<option value="&#91;">MOD_DATE2_OPT_SEP9</option>
+					<option value="&#93;">MOD_DATE2_OPT_SEP10</option>
+					<option value="&#60;">MOD_DATE2_OPT_SEP11</option>
+					<option value="&#62;">MOD_DATE2_OPT_SEP12</option>
+					<option value="&#46;">MOD_DATE2_OPT_SEP13</option>
+					<option value="&#44;">MOD_DATE2_OPT_SEP14</option>
+					<option value="&#166;">MOD_DATE2_OPT_SEP15</option>
+					<option value="&#126;">MOD_DATE2_OPT_SEP16</option>
+					<option value="&lt;br /&gt;">MOD_DATE2_OPT_SEP17</option>
+				</field>
+				<field name="sepweek2" type="text" default="" label="MOD_DATE2_SEPWEEK2" description="MOD_DATE2_DESC_SEPWEEK2" />
+				<field name="sepday1d" type="list" default="&#160;" label="MOD_DATE2_SEPDAY1D" description="MOD_DATE2_DESC_SEPDAY1D">
+					<option value="0">MOD_DATE2_OPT_NONE</option>
+					<option value="&#160;">MOD_DATE2_OPT_SEP1</option>
+					<option value="&#58;">MOD_DATE2_OPT_SEP2</option>
+					<option value="&#45;">MOD_DATE2_OPT_SEP3</option>
+					<option value="&#43;">MOD_DATE2_OPT_SEP4</option>
+					<option value="&#47;">MOD_DATE2_OPT_SEP5</option>
+					<option value="&#92;">MOD_DATE2_OPT_SEP6</option>
+					<option value="&#40;">MOD_DATE2_OPT_SEP7</option>
+					<option value="&#41;">MOD_DATE2_OPT_SEP8</option>
+					<option value="&#91;">MOD_DATE2_OPT_SEP9</option>
+					<option value="&#93;">MOD_DATE2_OPT_SEP10</option>
+					<option value="&#60;">MOD_DATE2_OPT_SEP11</option>
+					<option value="&#62;">MOD_DATE2_OPT_SEP12</option>
+					<option value="&#46;">MOD_DATE2_OPT_SEP13</option>
+					<option value="&#44;">MOD_DATE2_OPT_SEP14</option>
+					<option value="&#166;">MOD_DATE2_OPT_SEP15</option>
+					<option value="&#126;">MOD_DATE2_OPT_SEP16</option>
+					<option value="&lt;br /&gt;">MOD_DATE2_OPT_SEP17</option>
+				</field>
+				<field name="sepday1" type="text" default="" label="MOD_DATE2_SEPDAY1" description="MOD_DATE2_DESC_SEPDAY1" />
+				<field name="sepday2d" type="list" default="&#160;" label="MOD_DATE2_SEPDAY2D" description="MOD_DATE2_DESC_SEPDAY2D">
+					<option value="0">MOD_DATE2_OPT_NONE</option>
+					<option value="&#160;">MOD_DATE2_OPT_SEP1</option>
+					<option value="&#58;">MOD_DATE2_OPT_SEP2</option>
+					<option value="&#45;">MOD_DATE2_OPT_SEP3</option>
+					<option value="&#43;">MOD_DATE2_OPT_SEP4</option>
+					<option value="&#47;">MOD_DATE2_OPT_SEP5</option>
+					<option value="&#92;">MOD_DATE2_OPT_SEP6</option>
+					<option value="&#40;">MOD_DATE2_OPT_SEP7</option>
+					<option value="&#41;">MOD_DATE2_OPT_SEP8</option>
+					<option value="&#91;">MOD_DATE2_OPT_SEP9</option>
+					<option value="&#93;">MOD_DATE2_OPT_SEP10</option>
+					<option value="&#60;">MOD_DATE2_OPT_SEP11</option>
+					<option value="&#62;">MOD_DATE2_OPT_SEP12</option>
+					<option value="&#46;">MOD_DATE2_OPT_SEP13</option>
+					<option value="&#44;">MOD_DATE2_OPT_SEP14</option>
+					<option value="&#166;">MOD_DATE2_OPT_SEP15</option>
+					<option value="&#126;">MOD_DATE2_OPT_SEP16</option>
+					<option value="&lt;br /&gt;">MOD_DATE2_OPT_SEP17</option>
+				</field>
+				<field name="sepday2" type="text" default="" label="MOD_DATE2_SEPDAY2" description="MOD_DATE2_DESC_SEPDAY2" />
+				<field name="sepmonth1d" type="list" default="" label="MOD_DATE2_SEPMONTH1D" description="MOD_DATE2_DESC_SEPMONTH1D">
+					<option value="0">MOD_DATE2_OPT_NONE</option>
+					<option value="&#160;">MOD_DATE2_OPT_SEP1</option>
+					<option value="&#58;">MOD_DATE2_OPT_SEP2</option>
+					<option value="&#45;">MOD_DATE2_OPT_SEP3</option>
+					<option value="&#43;">MOD_DATE2_OPT_SEP4</option>
+					<option value="&#47;">MOD_DATE2_OPT_SEP5</option>
+					<option value="&#92;">MOD_DATE2_OPT_SEP6</option>
+					<option value="&#40;">MOD_DATE2_OPT_SEP7</option>
+					<option value="&#41;">MOD_DATE2_OPT_SEP8</option>
+					<option value="&#91;">MOD_DATE2_OPT_SEP9</option>
+					<option value="&#93;">MOD_DATE2_OPT_SEP10</option>
+					<option value="&#60;">MOD_DATE2_OPT_SEP11</option>
+					<option value="&#62;">MOD_DATE2_OPT_SEP12</option>
+					<option value="&#46;">MOD_DATE2_OPT_SEP13</option>
+					<option value="&#44;">MOD_DATE2_OPT_SEP14</option>
+					<option value="&#166;">MOD_DATE2_OPT_SEP15</option>
+					<option value="&#126;">MOD_DATE2_OPT_SEP16</option>
+					<option value="&lt;br /&gt;">MOD_DATE2_OPT_SEP17</option>
+				</field>
+				<field name="sepmonth1" type="text" default="" label="MOD_DATE2_SEPMONTH1" description="MOD_DATE2_DESC_SEPMONTH1" />
+				<field name="sepmonth2d" type="list" default="" label="MOD_DATE2_SEPMONTH2D" description="MOD_DATE2_DESC_SEPMONTH2D">
+					<option value="0">MOD_DATE2_OPT_NONE</option>
+					<option value="&#160;">MOD_DATE2_OPT_SEP1</option>
+					<option value="&#58;">MOD_DATE2_OPT_SEP2</option>
+					<option value="&#45;">MOD_DATE2_OPT_SEP3</option>
+					<option value="&#43;">MOD_DATE2_OPT_SEP4</option>
+					<option value="&#47;">MOD_DATE2_OPT_SEP5</option>
+					<option value="&#92;">MOD_DATE2_OPT_SEP6</option>
+					<option value="&#40;">MOD_DATE2_OPT_SEP7</option>
+					<option value="&#41;">MOD_DATE2_OPT_SEP8</option>
+					<option value="&#91;">MOD_DATE2_OPT_SEP9</option>
+					<option value="&#93;">MOD_DATE2_OPT_SEP10</option>
+					<option value="&#60;">MOD_DATE2_OPT_SEP11</option>
+					<option value="&#62;">MOD_DATE2_OPT_SEP12</option>
+					<option value="&#46;">MOD_DATE2_OPT_SEP13</option>
+					<option value="&#44;">MOD_DATE2_OPT_SEP14</option>
+					<option value="&#166;">MOD_DATE2_OPT_SEP15</option>
+					<option value="&#126;">MOD_DATE2_OPT_SEP16</option>
+					<option value="&lt;br /&gt;">MOD_DATE2_OPT_SEP17</option>
+				</field>
+				<field name="sepmonth2" type="text" default="" label="MOD_DATE2_SEPMONTH2" description="MOD_DATE2_DESC_SEPMONTH2" />
+				<field name="sepyear1d" type="list" default="&#160;" label="MOD_DATE2_SEPYEAR1D" description="MOD_DATE2_DESC_SEPYEAR1D">
+					<option value="0">MOD_DATE2_OPT_NONE</option>
+					<option value="&#160;">MOD_DATE2_OPT_SEP1</option>
+					<option value="&#58;">MOD_DATE2_OPT_SEP2</option>
+					<option value="&#45;">MOD_DATE2_OPT_SEP3</option>
+					<option value="&#43;">MOD_DATE2_OPT_SEP4</option>
+					<option value="&#47;">MOD_DATE2_OPT_SEP5</option>
+					<option value="&#92;">MOD_DATE2_OPT_SEP6</option>
+					<option value="&#40;">MOD_DATE2_OPT_SEP7</option>
+					<option value="&#41;">MOD_DATE2_OPT_SEP8</option>
+					<option value="&#91;">MOD_DATE2_OPT_SEP9</option>
+					<option value="&#93;">MOD_DATE2_OPT_SEP10</option>
+					<option value="&#60;">MOD_DATE2_OPT_SEP11</option>
+					<option value="&#62;">MOD_DATE2_OPT_SEP12</option>
+					<option value="&#46;">MOD_DATE2_OPT_SEP13</option>
+					<option value="&#44;">MOD_DATE2_OPT_SEP14</option>
+					<option value="&#166;">MOD_DATE2_OPT_SEP15</option>
+					<option value="&#126;">MOD_DATE2_OPT_SEP16</option>
+					<option value="&lt;br /&gt;">MOD_DATE2_OPT_SEP17</option>
+				</field>
+				<field name="sepyear1" type="text" default="" label="MOD_DATE2_SEPYEAR1" description="MOD_DATE2_DESC_SEPYEAR1" />
+				<field name="sepyear2d" type="list" default="" label="MOD_DATE2_SEPYEAR2D" description="MOD_DATE2_DESC_SEPYEAR2D">
+					<option value="0">MOD_DATE2_OPT_NONE</option>
+					<option value="&#160;">MOD_DATE2_OPT_SEP1</option>
+					<option value="&#58;">MOD_DATE2_OPT_SEP2</option>
+					<option value="&#45;">MOD_DATE2_OPT_SEP3</option>
+					<option value="&#43;">MOD_DATE2_OPT_SEP4</option>
+					<option value="&#47;">MOD_DATE2_OPT_SEP5</option>
+					<option value="&#92;">MOD_DATE2_OPT_SEP6</option>
+					<option value="&#40;">MOD_DATE2_OPT_SEP7</option>
+					<option value="&#41;">MOD_DATE2_OPT_SEP8</option>
+					<option value="&#91;">MOD_DATE2_OPT_SEP9</option>
+					<option value="&#93;">MOD_DATE2_OPT_SEP10</option>
+					<option value="&#60;">MOD_DATE2_OPT_SEP11</option>
+					<option value="&#62;">MOD_DATE2_OPT_SEP12</option>
+					<option value="&#46;">MOD_DATE2_OPT_SEP13</option>
+					<option value="&#44;">MOD_DATE2_OPT_SEP14</option>
+					<option value="&#166;">MOD_DATE2_OPT_SEP15</option>
+					<option value="&#126;">MOD_DATE2_OPT_SEP16</option>
+					<option value="&lt;br /&gt;">MOD_DATE2_OPT_SEP17</option>
+				</field>
+				<field name="sepyear2" type="text" default="" label="MOD_DATE2_SEPYEAR2" description="MOD_DATE2_DESC_SEPYEAR2" />
+				<field name="sephour1d" type="list" default="" label="MOD_DATE2_SEPHOUR1D" description="MOD_DATE2_DESC_SEPHOUR1D">
+					<option value="0">MOD_DATE2_OPT_NONE</option>
+					<option value="&#160;">MOD_DATE2_OPT_SEP1</option>
+					<option value="&#58;">MOD_DATE2_OPT_SEP2</option>
+					<option value="&#45;">MOD_DATE2_OPT_SEP3</option>
+					<option value="&#43;">MOD_DATE2_OPT_SEP4</option>
+					<option value="&#47;">MOD_DATE2_OPT_SEP5</option>
+					<option value="&#92;">MOD_DATE2_OPT_SEP6</option>
+					<option value="&#40;">MOD_DATE2_OPT_SEP7</option>
+					<option value="&#41;">MOD_DATE2_OPT_SEP8</option>
+					<option value="&#91;">MOD_DATE2_OPT_SEP9</option>
+					<option value="&#93;">MOD_DATE2_OPT_SEP10</option>
+					<option value="&#60;">MOD_DATE2_OPT_SEP11</option>
+					<option value="&#62;">MOD_DATE2_OPT_SEP12</option>
+					<option value="&#46;">MOD_DATE2_OPT_SEP13</option>
+					<option value="&#44;">MOD_DATE2_OPT_SEP14</option>
+					<option value="&#166;">MOD_DATE2_OPT_SEP15</option>
+					<option value="&#126;">MOD_DATE2_OPT_SEP16</option>
+					<option value="&lt;br /&gt;">MOD_DATE2_OPT_SEP17</option>
+				</field>
+				<field name="sephour1" type="text" default="" label="MOD_DATE2_SEPHOUR1" description="MOD_DATE2_DESC_SEPHOUR1" />
+				<field name="sephour2d" type="list" default="" label="MOD_DATE2_SEPHOUR2D" description="MOD_DATE2_DESC_SEPHOUR2D">
+					<option value="0">MOD_DATE2_OPT_NONE</option>
+					<option value="&#160;">MOD_DATE2_OPT_SEP1</option>
+					<option value="&#58;">MOD_DATE2_OPT_SEP2</option>
+					<option value="&#45;">MOD_DATE2_OPT_SEP3</option>
+					<option value="&#43;">MOD_DATE2_OPT_SEP4</option>
+					<option value="&#47;">MOD_DATE2_OPT_SEP5</option>
+					<option value="&#92;">MOD_DATE2_OPT_SEP6</option>
+					<option value="&#40;">MOD_DATE2_OPT_SEP7</option>
+					<option value="&#41;">MOD_DATE2_OPT_SEP8</option>
+					<option value="&#91;">MOD_DATE2_OPT_SEP9</option>
+					<option value="&#93;">MOD_DATE2_OPT_SEP10</option>
+					<option value="&#60;">MOD_DATE2_OPT_SEP11</option>
+					<option value="&#62;">MOD_DATE2_OPT_SEP12</option>
+					<option value="&#46;">MOD_DATE2_OPT_SEP13</option>
+					<option value="&#44;">MOD_DATE2_OPT_SEP14</option>
+					<option value="&#166;">MOD_DATE2_OPT_SEP15</option>
+					<option value="&#126;">MOD_DATE2_OPT_SEP16</option>
+					<option value="&lt;br /&gt;">MOD_DATE2_OPT_SEP17</option>
+				</field>
+				<field name="sephour2" type="text" default="" label="MOD_DATE2_SEPHOUR2" description="MOD_DATE2_DESC_SEPHOUR2" />
+				<field name="sepminute1d" type="list" default=":" label="MOD_DATE2_SEPMINUTE1D" description="MOD_DATE2_DESC_SEPMINUTE1D">
+					<option value="0">MOD_DATE2_OPT_NONE</option>
+					<option value="&#160;">MOD_DATE2_OPT_SEP1</option>
+					<option value="&#58;">MOD_DATE2_OPT_SEP2</option>
+					<option value="&#45;">MOD_DATE2_OPT_SEP3</option>
+					<option value="&#43;">MOD_DATE2_OPT_SEP4</option>
+					<option value="&#47;">MOD_DATE2_OPT_SEP5</option>
+					<option value="&#92;">MOD_DATE2_OPT_SEP6</option>
+					<option value="&#40;">MOD_DATE2_OPT_SEP7</option>
+					<option value="&#41;">MOD_DATE2_OPT_SEP8</option>
+					<option value="&#91;">MOD_DATE2_OPT_SEP9</option>
+					<option value="&#93;">MOD_DATE2_OPT_SEP10</option>
+					<option value="&#60;">MOD_DATE2_OPT_SEP11</option>
+					<option value="&#62;">MOD_DATE2_OPT_SEP12</option>
+					<option value="&#46;">MOD_DATE2_OPT_SEP13</option>
+					<option value="&#44;">MOD_DATE2_OPT_SEP14</option>
+					<option value="&#166;">MOD_DATE2_OPT_SEP15</option>
+					<option value="&#126;">MOD_DATE2_OPT_SEP16</option>
+					<option value="&lt;br /&gt;">MOD_DATE2_OPT_SEP17</option>
+				</field>
+				<field name="sepminute1" type="text" default="" label="MOD_DATE2_SEPMINUTE1" description="MOD_DATE2_DESC_SEPMINUTE1" />
+				<field name="sepminute2d" type="list" default=":" label="MOD_DATE2_SEPMINUTE2D" description="MOD_DATE2_DESC_SEPMINUTE2D">
+					<option value="0">MOD_DATE2_OPT_NONE</option>
+					<option value="&#160;">MOD_DATE2_OPT_SEP1</option>
+					<option value="&#58;">MOD_DATE2_OPT_SEP2</option>
+					<option value="&#45;">MOD_DATE2_OPT_SEP3</option>
+					<option value="&#43;">MOD_DATE2_OPT_SEP4</option>
+					<option value="&#47;">MOD_DATE2_OPT_SEP5</option>
+					<option value="&#92;">MOD_DATE2_OPT_SEP6</option>
+					<option value="&#40;">MOD_DATE2_OPT_SEP7</option>
+					<option value="&#41;">MOD_DATE2_OPT_SEP8</option>
+					<option value="&#91;">MOD_DATE2_OPT_SEP9</option>
+					<option value="&#93;">MOD_DATE2_OPT_SEP10</option>
+					<option value="&#60;">MOD_DATE2_OPT_SEP11</option>
+					<option value="&#62;">MOD_DATE2_OPT_SEP12</option>
+					<option value="&#46;">MOD_DATE2_OPT_SEP13</option>
+					<option value="&#44;">MOD_DATE2_OPT_SEP14</option>
+					<option value="&#166;">MOD_DATE2_OPT_SEP15</option>
+					<option value="&#126;">MOD_DATE2_OPT_SEP16</option>
+					<option value="&lt;br /&gt;">MOD_DATE2_OPT_SEP17</option>
+				</field>
+				<field name="sepminute2" type="text" default="" label="MOD_DATE2_SEPMINUTE2" description="MOD_DATE2_DESC_SEPMINUTE2" />
+				<field name="sepsecond1d" type="list" default="" label="MOD_DATE2_SEPSECOND1D" description="MOD_DATE2_DESC_SEPSECOND1D">
+					<option value="0">MOD_DATE2_OPT_NONE</option>
+					<option value="&#160;">MOD_DATE2_OPT_SEP1</option>
+					<option value="&#58;">MOD_DATE2_OPT_SEP2</option>
+					<option value="&#45;">MOD_DATE2_OPT_SEP3</option>
+					<option value="&#43;">MOD_DATE2_OPT_SEP4</option>
+					<option value="&#47;">MOD_DATE2_OPT_SEP5</option>
+					<option value="&#92;">MOD_DATE2_OPT_SEP6</option>
+					<option value="&#40;">MOD_DATE2_OPT_SEP7</option>
+					<option value="&#41;">MOD_DATE2_OPT_SEP8</option>
+					<option value="&#91;">MOD_DATE2_OPT_SEP9</option>
+					<option value="&#93;">MOD_DATE2_OPT_SEP10</option>
+					<option value="&#60;">MOD_DATE2_OPT_SEP11</option>
+					<option value="&#62;">MOD_DATE2_OPT_SEP12</option>
+					<option value="&#46;">MOD_DATE2_OPT_SEP13</option>
+					<option value="&#44;">MOD_DATE2_OPT_SEP14</option>
+					<option value="&#166;">MOD_DATE2_OPT_SEP15</option>
+					<option value="&#126;">MOD_DATE2_OPT_SEP16</option>
+					<option value="&lt;br /&gt;">MOD_DATE2_OPT_SEP17</option>
+				</field>
+				<field name="sepsecond1" type="text" default="" label="MOD_DATE2_SEPSECOND1" description="MOD_DATE2_DESC_SEPSECOND1" />
+				<field name="sepsecond2d" type="list" default="" label="MOD_DATE2_SEPSECOND2D" description="MOD_DATE2_DESC_SEPSECOND2D">
+					<option value="0">MOD_DATE2_OPT_NONE</option>
+					<option value="&#160;">MOD_DATE2_OPT_SEP1</option>
+					<option value="&#58;">MOD_DATE2_OPT_SEP2</option>
+					<option value="&#45;">MOD_DATE2_OPT_SEP3</option>
+					<option value="&#43;">MOD_DATE2_OPT_SEP4</option>
+					<option value="&#47;">MOD_DATE2_OPT_SEP5</option>
+					<option value="&#92;">MOD_DATE2_OPT_SEP6</option>
+					<option value="&#40;">MOD_DATE2_OPT_SEP7</option>
+					<option value="&#41;">MOD_DATE2_OPT_SEP8</option>
+					<option value="&#91;">MOD_DATE2_OPT_SEP9</option>
+					<option value="&#93;">MOD_DATE2_OPT_SEP10</option>
+					<option value="&#60;">MOD_DATE2_OPT_SEP11</option>
+					<option value="&#62;">MOD_DATE2_OPT_SEP12</option>
+					<option value="&#46;">MOD_DATE2_OPT_SEP13</option>
+					<option value="&#44;">MOD_DATE2_OPT_SEP14</option>
+					<option value="&#166;">MOD_DATE2_OPT_SEP15</option>
+					<option value="&#126;">MOD_DATE2_OPT_SEP16</option>
+					<option value="&lt;br /&gt;">MOD_DATE2_OPT_SEP17</option>
+				</field>
+				<field name="sepsecond2" type="text" default="" label="MOD_DATE2_SEPSECOND2" description="MOD_DATE2_DESC_SEPSECOND2" />
+				<field name="sepampm1d" type="list" default="" label="MOD_DATE2_SEPAMPM1D" description="MOD_DATE2_DESC_SEPAMPM1D">
+					<option value="0">MOD_DATE2_OPT_NONE</option>
+					<option value="&#160;">MOD_DATE2_OPT_SEP1</option>
+					<option value="&#58;">MOD_DATE2_OPT_SEP2</option>
+					<option value="&#45;">MOD_DATE2_OPT_SEP3</option>
+					<option value="&#43;">MOD_DATE2_OPT_SEP4</option>
+					<option value="&#47;">MOD_DATE2_OPT_SEP5</option>
+					<option value="&#92;">MOD_DATE2_OPT_SEP6</option>
+					<option value="&#40;">MOD_DATE2_OPT_SEP7</option>
+					<option value="&#41;">MOD_DATE2_OPT_SEP8</option>
+					<option value="&#91;">MOD_DATE2_OPT_SEP9</option>
+					<option value="&#93;">MOD_DATE2_OPT_SEP10</option>
+					<option value="&#60;">MOD_DATE2_OPT_SEP11</option>
+					<option value="&#62;">MOD_DATE2_OPT_SEP12</option>
+					<option value="&#46;">MOD_DATE2_OPT_SEP13</option>
+					<option value="&#44;">MOD_DATE2_OPT_SEP14</option>
+					<option value="&#166;">MOD_DATE2_OPT_SEP15</option>
+					<option value="&#126;">MOD_DATE2_OPT_SEP16</option>
+					<option value="&lt;br /&gt;">MOD_DATE2_OPT_SEP17</option>
+				</field>
+				<field name="sepampm1" type="text" default="" label="MOD_DATE2_SEPAMPM1" description="MOD_DATE2_DESC_SEPAMPM1" />
+				<field name="sepampm2d" type="list" default="" label="MOD_DATE2_SEPAMPM2D" description="MOD_DATE2_DESC_SEPAMPM2D">
+					<option value="0">MOD_DATE2_OPT_NONE</option>
+					<option value="&#160;">MOD_DATE2_OPT_SEP1</option>
+					<option value="&#58;">MOD_DATE2_OPT_SEP2</option>
+					<option value="&#45;">MOD_DATE2_OPT_SEP3</option>
+					<option value="&#43;">MOD_DATE2_OPT_SEP4</option>
+					<option value="&#47;">MOD_DATE2_OPT_SEP5</option>
+					<option value="&#92;">MOD_DATE2_OPT_SEP6</option>
+					<option value="&#40;">MOD_DATE2_OPT_SEP7</option>
+					<option value="&#41;">MOD_DATE2_OPT_SEP8</option>
+					<option value="&#91;">MOD_DATE2_OPT_SEP9</option>
+					<option value="&#93;">MOD_DATE2_OPT_SEP10</option>
+					<option value="&#60;">MOD_DATE2_OPT_SEP11</option>
+					<option value="&#62;">MOD_DATE2_OPT_SEP12</option>
+					<option value="&#46;">MOD_DATE2_OPT_SEP13</option>
+					<option value="&#44;">MOD_DATE2_OPT_SEP14</option>
+					<option value="&#166;">MOD_DATE2_OPT_SEP15</option>
+					<option value="&#126;">MOD_DATE2_OPT_SEP16</option>
+					<option value="&lt;br /&gt;">MOD_DATE2_OPT_SEP17</option>
+				</field>
+				<field name="sepampm2" type="text" default="" label="MOD_DATE2_SEPAMPM2" description="MOD_DATE2_DESC_SEPAMPM2" />
+			</fieldset>
+			<fieldset name="MOD_DATE2_DAYOFWEEK_OUTPUT">
+				<field name="suntext" type="text" default="Sunday" label="MOD_DATE2_TEXT_SUNDAY" description="MOD_DATE2_DESC_TEXT_SUNDAY" />
+				<field name="montext" type="text" default="Monday" label="MOD_DATE2_TEXT_MONDAY" description="MOD_DATE2_DESC_TEXT_MONDAY" />
+				<field name="tuetext" type="text" default="Tuesday" label="MOD_DATE2_TEXT_TUESDAY" description="MOD_DATE2_DESC_TEXT_TUESDAY" />
+				<field name="wedtext" type="text" default="Wednesday" label="MOD_DATE2_TEXT_WEDNESDAY" description="MOD_DATE2_DESC_TEXT_WEDNESDAY" />
+				<field name="thutext" type="text" default="Thursday" label="MOD_DATE2_TEXT_THURSDAY" description="MOD_DATE2_DESC_TEXT_THURSDAY" />
+				<field name="fritext" type="text" default="Friday" label="MOD_DATE2_TEXT_FRIDAY" description="MOD_DATE2_DESC_TEXT_FRIDAY" />
+				<field name="sattext" type="text" default="Saturday" label="MOD_DATE2_TEXT_SATURDAY" description="MOD_DATE2_DESC_TEXT_SATURDAY" />
+			</fieldset>
+			<fieldset name="MOD_DATE2_MONTH_OUTPUT">
+				<field name="monthformat" type="list" default="0" label="MOD_DATE2_MONTH_FORMAT" description="MOD_DATE2_DESC_MONTH_FORMAT">
+					<option value="0">MOD_DATE2_OPT_TEXT</option>
+					<option value="1">MOD_DATE2_OPT_NUMBER</option>
+				</field>
+				<field name="jantext" type="text" default="January" label="MOD_DATE2_TEXT_JAN" description="MOD_DATE2_DESC_TEXT_JAN" />
+				<field name="febtext" type="text" default="February" label="MOD_DATE2_TEXT_FEB" description="MOD_DATE2_DESC_TEXT_FEB" />
+				<field name="martext" type="text" default="March" label="MOD_DATE2_TEXT_MAR" description="MOD_DATE2_DESC_TEXT_MAR" />
+				<field name="aprtext" type="text" default="April" label="MOD_DATE2_TEXT_APR" description="MOD_DATE2_DESC_TEXT_APR" />
+				<field name="maytext" type="text" default="May" label="MOD_DATE2_TEXT_MAY" description="MOD_DATE2_DESC_TEXT_MAY" />
+				<field name="juntext" type="text" default="June" label="MOD_DATE2_TEXT_JUN" description="MOD_DATE2_DESC_TEXT_JUN" />
+				<field name="jultext" type="text" default="July" label="MOD_DATE2_TEXT_JUL" description="MOD_DATE2_DESC_TEXT_JUL" />
+				<field name="augtext" type="text" default="August" label="MOD_DATE2_TEXT_AUG" description="MOD_DATE2_DESC_TEXT_AUG" />
+				<field name="septext" type="text" default="September" label="MOD_DATE2_TEXT_SEP" description="MOD_DATE2_DESC_TEXT_SEP" />
+				<field name="octtext" type="text" default="October" label="MOD_DATE2_TEXT_OCT" description="MOD_DATE2_DESC_TEXT_OCT" />
+				<field name="novtext" type="text" default="November" label="MOD_DATE2_TEXT_NOV" description="MOD_DATE2_DESC_TEXT_NOV" />
+				<field name="dectext" type="text" default="December" label="MOD_DATE2_TEXT_DEC" description="MOD_DATE2_DESC_TEXT_DEC" />
+			</fieldset>
+			<fieldset name="MOD_DATE2_DAYOFMONTH_OUTPUT">
+				<field name="suffixes" type="list" default="0" label="MOD_DATE2_DAYOFMONTH_FORMAT" description="MOD_DATE2_DESC_DAYOFMONTH_FORMAT">
+					<option value="0">MOD_DATE2_OPT_TEXT</option>
+					<option value="1">MOD_DATE2_OPT_NUMBER</option>
+				</field>
+				<field name="d1" type="text" default="1st" label="MOD_DATE2_DAY1" description="MOD_DATE2_DESC_DAY1" />
+				<field name="d2" type="text" default="2nd" label="MOD_DATE2_DAY2" description="MOD_DATE2_DESC_DAY2" />
+				<field name="d3" type="text" default="3rd" label="MOD_DATE2_DAY3" description="MOD_DATE2_DESC_DAY3" />
+				<field name="d4" type="text" default="4th" label="MOD_DATE2_DAY4" description="MOD_DATE2_DESC_DAY4" />
+				<field name="d5" type="text" default="5th" label="MOD_DATE2_DAY5" description="MOD_DATE2_DESC_DAY5" />
+				<field name="d6" type="text" default="6th" label="MOD_DATE2_DAY6" description="MOD_DATE2_DESC_DAY6" />
+				<field name="d7" type="text" default="7th" label="MOD_DATE2_DAY7" description="MOD_DATE2_DESC_DAY7" />
+				<field name="d8" type="text" default="8th" label="MOD_DATE2_DAY8" description="MOD_DATE2_DESC_DAY8" />
+				<field name="d9" type="text" default="9th" label="MOD_DATE2_DAY9" description="MOD_DATE2_DESC_DAY9" />
+				<field name="d10" type="text" default="10th" label="MOD_DATE2_DAY10" description="MOD_DATE2_DESC_DAY10" />
+				<field name="d11" type="text" default="11th" label="MOD_DATE2_DAY11" description="MOD_DATE2_DESC_DAY11" />
+				<field name="d12" type="text" default="12th" label="MOD_DATE2_DAY12" description="MOD_DATE2_DESC_DAY12" />
+				<field name="d13" type="text" default="13th" label="MOD_DATE2_DAY13" description="MOD_DATE2_DESC_DAY13" />
+				<field name="d14" type="text" default="14th" label="MOD_DATE2_DAY14" description="MOD_DATE2_DESC_DAY14" />
+				<field name="d15" type="text" default="15th" label="MOD_DATE2_DAY15" description="MOD_DATE2_DESC_DAY15" />
+				<field name="d16" type="text" default="16th" label="MOD_DATE2_DAY16" description="MOD_DATE2_DESC_DAY16" />
+				<field name="d17" type="text" default="17th" label="MOD_DATE2_DAY17" description="MOD_DATE2_DESC_DAY17" />
+				<field name="d18" type="text" default="18th" label="MOD_DATE2_DAY18" description="MOD_DATE2_DESC_DAY18" />
+				<field name="d19" type="text" default="19th" label="MOD_DATE2_DAY19" description="MOD_DATE2_DESC_DAY19" />
+				<field name="d20" type="text" default="20th" label="MOD_DATE2_DAY20" description="MOD_DATE2_DESC_DAY20" />
+				<field name="d21" type="text" default="21st" label="MOD_DATE2_DAY21" description="MOD_DATE2_DESC_DAY21" />
+				<field name="d22" type="text" default="22nd" label="MOD_DATE2_DAY22" description="MOD_DATE2_DESC_DAY22" />
+				<field name="d23" type="text" default="23rd" label="MOD_DATE2_DAY23" description="MOD_DATE2_DESC_DAY23" />
+				<field name="d24" type="text" default="24th" label="MOD_DATE2_DAY24" description="MOD_DATE2_DESC_DAY24" />
+				<field name="d25" type="text" default="25th" label="MOD_DATE2_DAY25" description="MOD_DATE2_DESC_DAY25" />
+				<field name="d26" type="text" default="26th" label="MOD_DATE2_DAY26" description="MOD_DATE2_DESC_DAY26" />
+				<field name="d27" type="text" default="27th" label="MOD_DATE2_DAY27" description="MOD_DATE2_DESC_DAY27" />
+				<field name="d28" type="text" default="28th" label="MOD_DATE2_DAY28" description="MOD_DATE2_DESC_DAY28" />
+				<field name="d29" type="text" default="29th" label="MOD_DATE2_DAY29" description="MOD_DATE2_DESC_DAY29" />
+				<field name="d30" type="text" default="30th" label="MOD_DATE2_DAY30" description="MOD_DATE2_DESC_DAY30" />
+				<field name="d31" type="text" default="31st" label="MOD_DATE2_DAY31" description="MOD_DATE2_DESC_DAY31" />
+			</fieldset>
+			<fieldset name="MOD_DATE2_YEAR_OUTPUT">
+				<field name="yearformat" type="list" default="1" label="MOD_DATE2_YEAR_FORMAT" description="MOD_DATE2_DESC_YEAR_FORMAT">
+					<option value="0">MOD_DATE2_OPT_TEXT</option>
+					<option value="1">MOD_DATE2_OPT_NUMBER</option>
+				</field>
+				<field name="y0" type="text" default="0" label="MOD_DATE2_YEAR0" description="MOD_DATE2_DESC_YEAR0" />
+				<field name="y1" type="text" default="1" label="MOD_DATE2_YEAR1" description="MOD_DATE2_DESC_YEAR1" />
+				<field name="y2" type="text" default="2" label="MOD_DATE2_YEAR2" description="MOD_DATE2_DESC_YEAR2" />
+				<field name="y3" type="text" default="3" label="MOD_DATE2_YEAR3" description="MOD_DATE2_DESC_YEAR3" />
+				<field name="y4" type="text" default="4" label="MOD_DATE2_YEAR4" description="MOD_DATE2_DESC_YEAR4" />
+				<field name="y5" type="text" default="5" label="MOD_DATE2_YEAR5" description="MOD_DATE2_DESC_YEAR5" />
+				<field name="y6" type="text" default="6" label="MOD_DATE2_YEAR6" description="MOD_DATE2_DESC_YEAR6" />
+				<field name="y7" type="text" default="7" label="MOD_DATE2_YEAR7" description="MOD_DATE2_DESC_YEAR7" />
+				<field name="y8" type="text" default="8" label="MOD_DATE2_YEAR8" description="MOD_DATE2_DESC_YEAR8" />
+				<field name="y9" type="text" default="9" label="MOD_DATE2_YEAR9" description="MOD_DATE2_DESC_YEAR9" />
+			</fieldset>
+		</fields>
+	</config>
+</extension>

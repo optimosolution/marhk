@@ -1,0 +1,84 @@
+/*---------------------------------------------------------------- 
+  Copyright:
+  Copyright (C) 2008 -2011 IceTheme. All Rights Reserved
+  
+  License:
+  Copyrighted Commercial Software 
+  
+  Author:
+  IceTheme - http://wwww.icetheme.com
+---------------------------------------------------------------- */
+
+/* icemegamenu */		
+#icemegamenu ul.icesubMenu,
+#subMenusContainer ul.icesubMenu {  
+	background:#3C678B;}
+
+div#subMenusContainer a.iceMenuTitle,
+div#subMenusContainer span.separator {		
+	border-bottom-color: rgba(0,0,0,.4);
+	box-shadow:0 1px 0 rgba(255,255,255,.2);}
+	
+
+/* typography.css */
+	
+	
+	
+/* layout.css */
+#content {
+	background-image:url(../images/styles/style5/content_pattern.png), url(../images/content.jpg);}
+	
+#content_inside {
+	background-image: url(../images/styles/style5/content_inside_pattern.png);}
+				
+#promo {
+	background-color:#3C678B;
+	background-image: url(../images/styles/style5/promo_pattern.png)}
+
+#promo:before {
+	background-image: url(../images/styles/style5/promo_effect_r.png)}
+
+#promo_effect {
+	background-image: url(../images/styles/style5/promo_effect_b.png)}
+
+#bottom {
+	background-color:#3C678B;
+	background-image: url(../images/styles/style5/bottom.png)}
+	
+#bottom:before {
+	background-image: url(../images/styles/style5/bottom_effect_r.png);}			
+
+#bottom-effect {
+	background-image: url(../images/styles/style5/bottom_effect_r.png)}
+		
+#nav-wrapper {
+	background-image: url(../images/styles/style5/nav.png)}
+
+ /* joomla.css */
+#breadcrumbs {
+	border-bottom-color:rgba(0,0,0,.4);}
+	
+	
+	/* modules.css */
+#promo .moduletable h3.mod-title span,
+#bottom .moduletable h3.mod-title span  {
+	color:#C0CBD3;}
+		
+#left-column .col-module .col-module-header-l,
+#left-column .col-module .col-module-header {
+	background-image:url(../images/styles/style5/col-module-left-header.png)}
+	
+#left-column  .col-module h3.mod-title span {
+	background:#823003;
+	background: -moz-linear-gradient(left, #B44205, #823003);
+	background: -webkit-linear-gradient(left, #B44205, #823003);
+	background: -o-linear-gradient(left, #B44205, #823003);}
+
+	
+		
+		
+ /* forms.css */
+	
+	
+
+/* offline and not found */

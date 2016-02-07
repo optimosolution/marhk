@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="1.6.0" client="site" method="upgrade">
+    <name>IceMegaMenu Module</name>
+    <creationDate>March 2011</creationDate>
+    <author>IceTheme</author>
+    <copyright>GNU / GPL</copyright>
+    <authorEmail>info@icetheme.com</authorEmail>
+    <authorUrl>http://www.icetheme.com</authorUrl>
+    <version>1.6.0</version>
+	<description>IceMegaMenu extension is a powerful Joomla (module + plugin) to help you take the most from the navigation system. Top features includes ability to split dropdown columns, option to load modules inside the dropdown, works without JavaScript and much more.</description>
+     <files>
+         <filename module="mod_icemegamenu">mod_icemegamenu.php</filename>
+         <filename module="mod_icemegamenu">helper.php</filename>
+		 <filename module="mod_icemegamenu">index.html</filename>
+         <folder module="mod_icemegamenu">libs</folder>
+		  <folder module="mod_icemegamenu">assets</folder>
+         <folder module="mod_icemegamenu">tmpl</folder>
+		 <folder module="mod_icemegamenu">themes</folder>
+    </files>
+	<languages>
+		<language tag="en-GB">languages/en-GB.mod_icemegamenu.ini</language>
+	</languages>
+<config>
+	<fields name="params"> 
+	<fieldset name="Ice Menu" label="ICEMEGAMENU_LABEL" addfieldpath="/modules/mod_icemegamenu/libs/elements">
+	
+		
+	   <field name="theme_style" type="folderlist" hide_none="true" label="SELECT_THEME" description="SELECT_THEME_DESC" default=""  directory="modules/mod_icemegamenu/themes" filter="" exclude="item" stripext="" />
+		
+	 <field name="spacer11" type="spacer" class="text" label="" />
+	 <field name="spacer1" type="spacer" class="text" label="SPACER_1" />
+				
+ 
+       <field
+                    name="menutype"
+                    type="menu"
+                    label="MENU_NAME"
+                    description="MENU_NAME_DESC" />
+		
+		<field
+                    name="startLevel"
+                    type="list"
+                    default="1"
+                    label="START_LEVEL"
+                    description="START_LEVEL_DESC" 
+                >
+                    <option value="1">J1</option>
+                    <option value="2">J2</option>
+                    <option value="3">J3</option>
+                    <option value="4">J4</option>
+                    <option value="5">J5</option>
+                    <option value="6">J6</option>
+                    <option value="7">J7</option>
+                    <option value="8">J8</option>
+                    <option value="9">J9</option>
+                    <option value="10">J10</option>
+                </field>
+
+                <field
+                    name="endLevel"
+                    type="list"
+                    default="0"
+                    label="END_LEVEL"
+                    description="END_LEVEL_DESC" 
+                    >
+                    <option value="0">JALL</option>
+                    <option value="1">J1</option>
+                    <option value="2">J2</option>
+                    <option value="3">J3</option>
+                    <option value="4">J4</option>
+                    <option value="5">J5</option>
+                    <option value="6">J6</option>
+                    <option value="7">J7</option>
+                    <option value="8">J8</option>
+                    <option value="9">J9</option>
+                    <option value="10">J10</option>
+                </field>
+		<field name="showAllChildren" type="radio" default="1" label="Always show submenu items" description="SHOW_SUB_MENU_ITEMS">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</field>
+		
+		
+		<field name="class_sfx" type="text" default="" label="MENU_CLASS_SUFFIX" description="MENU_CLASS_SUFFIX_DESC" />
+		
+      
+		<field name="window_open" type="hidden" default="" label="TARGET_POSITION" description="TARGET_POSITION_DESC"  />	
+		<field name="tag_id" type="text" default="" label="MENU_TAG_ID" description="MENU_TAG_ID_DESC" />
+		
+		<field name="spacer22" type="spacer" class="text" label="" />
+		<field name="spacer2" type="spacer" class="text" label="SPACER_2" />
+		
+		 <field name="js_effect" type="list" default="slide &amp; fade" label="MENU_EFFECT" description="MENU_EFFECT_DESC">
+            <option value="slide &amp; fade">Slide And Fade</option>
+            <option value="slide">Slide</option>
+            <option value="fade">Fade</option>
+        </field>
+		
+        <field name
+		="js_physics" type="list" default="Fx.Transitions.Pow.easeOut" label="EFFECT_BEHAVES" description="EFFECT_BEHAVES_DESC">
+					<option value="Fx.Transitions.linear">linear</option>
+					<option value="Fx.Transitions.quartOut">QuartOut</option>
+					<option value="Fx.Transitions.Quad.easeIn">Quad.easeIn</option>
+					<option value="Fx.Transitions.Quad.easeOut">Quad.easeOut</option>
+					<option value="Fx.Transitions.Quad.easeInOut">Quad.easeInOut</option>
+					<option value="Fx.Transitions.Cubic.easeIn">Cubic.easeIn</option>
+					<option value="Fx.Transitions.Cubic.easeOut">Cubic.easeOut</option>
+					<option value="Fx.Transitions.Cubic.easeInOut">Cubic.easeInOut</option>
+					<option value="Fx.Transitions.Quart.easeIn">Quart.easeIn</option>
+					<option value="Fx.Transitions.Quart.easeOut">Quart.easeOut</option>
+					<option value="Fx.Transitions.Quart.easeInOut">Quart.easeInOut</option>
+					<option value="Fx.Transitions.Quint.easeIn">Quint.easeIn</option>
+					<option value="Fx.Transitions.Quint.easeOut">Quint.easeOut</option>
+					<option value="Fx.Transitions.Quint.easeInOut">Quint.easeInOut</option>
+					<option value="Fx.Transitions.Pow.easeIn">Pow.easeIn</option>
+					<option value="Fx.Transitions.Pow.easeOut">Pow.easeOut</option>
+					<option value="Fx.Transitions.Pow.easeInOut">Pow.easeInOut</option>
+					<option value="Fx.Transitions.Expo.easeIn">Expo.easeIn</option>
+					<option value="Fx.Transitions.Expo.easeOut">Expo.easeOut</option>
+					<option value="Fx.Transitions.Expo.easeInOut">Expo.easeInOut</option>
+					<option value="Fx.Transitions.Circ.easeIn">Circ.easeIn</option>
+					<option value="Fx.Transitions.Circ.easeOut">Circ.easeOut</option>
+					<option value="Fx.Transitions.Circ.easeInOut">Circ.easeInOut</option>
+					<option value="Fx.Transitions.Sine.easeIn">Sine.easeIn</option>
+					<option value="Fx.Transitions.Sine.easeOut">Sine.easeOut</option>
+					<option value="Fx.Transitions.Sine.easeInOut">Sine.easeInOut</option>
+					<option value="Fx.Transitions.Back.easeIn">Back.easeIn</option>
+					<option value="Fx.Transitions.Back.easeOut">Back.easeOut</option>
+					<option value="Fx.Transitions.Back.easeInOut">Back.easeInOut</option>
+					<option value="Fx.Transitions.Bounce.easeIn">Bounce.easeIn</option>
+					<option value="Fx.Transitions.Bounce.easeOut">Bounce.easeOut</option>
+					<option value="Fx.Transitions.Bounce.easeInOut">Bounce.easeInOut</option>
+					<option value="Fx.Transitions.Elastic.easeIn">Elastic.easeIn</option>
+					<option value="Fx.Transitions.Elastic.easeOut">Elastic.easeOut</option>
+					<option value="Fx.Transitions.Elastic.easeInOut">Elastic.easeInOut</option>			
+					<option value="Fx.Transitions.Pow.easeOut">Fx.Transitions.Pow.easeOut</option>
+					<option value="Fx.Transitions.Pow.easeIn">Fx.Transitions.Pow.easeIn</option>
+        </field>
+		
+	  <field name="js_duration" type="text" default="600" label="DURATION_OF_THE_EFFECT" description="DURATION_OF_THE_EFFECT_DESC"/>
+
+        
+        <field name="js_hideDelay" type="text" default="1000" label="MENU_HIDE_DELAY" description="MENU_HIDE_DELAY_DESC" />
+         <field name="js_opacity" type="text" default="95" label="SUBMENUS_OPACITY" description="SUBMENUS_OPACITY_DESC" />
+        
+		<field name="spacer33" type="spacer" class="text" label="" />
+		<field name="spacer3" type="spacer" class="text" label="SPACER_3" />
+	
+		  <field name="use_js" type="list" default="1" label="USE_JAVASCREAPT" description="USE_JAVASCREAPT_DESC">
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </field>
+		
+	</fieldset>
+	
+	<fieldset name="advanced" lable="Advanced Parameters">
+		<field name="moduleclass_sfx" type="text" default="" label="MODULE_CLASS_SUFFIX" description="MODULE_CLASS_SUFFIX_DESC" />
+		
+
+		<field name="cache" type="list" default="1" label="Caching" description="CACHING_DESC">
+			<option value="1">Use global</option>
+			<option value="0">No caching</option>
+		</field>
+		<field name="cache_time" type="text" default="30" label="CACHE_TIME" description="CACHE_TIME_DESC" />
+      
+
+	</fieldset>
+	<fieldset name="other" label="Other Parameters">                                                                     
+		<field name="menu_images" type="radio" default="0" label="SHOW_MENU_ICONS" description="SHOW_MENU_ICONS_DESC">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</field>
+		<field name="menu_images_align" type="radio" default="0" label="MENU_ICON_ALIGMENT" description="MENU_ICON_ALIGMENT_DESC">
+			<option value="0">Left</option>
+			<option value="1">Right</option>
+			<option value="2">None</option>
+		</field>
+		 <field name="menu_images_link" type="radio" default="0" label="MENU_ICON_LINK" description="MENU_ICON_LINK_DESC">
+		      	<option value="0">No</option>
+		      	<option value="1">Yes</option>
+		  </field>
+		<field name="expand_menu" type="radio" default="0" label="EXPAND_MENU" description="EXPAND_MENU_DESC">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</field>
+		<field name="activate_parent" type="radio" default="0" label="ACTIVATE_PARENT" description="ACTIVATE_PARENT_DESC">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</field>
+		<field name="full_active_id" type="radio" default="0" label="FULL_ACTIVE_HIGHLIGHTING" description="FULL_ACTIVE_HIGHLIGHTING_DESC">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</field>
+		<field name="@spacer" type="spacer" default="" label="" description="" />
+		<field name="indent_image" type="list" default="0" label="INDENT_IMAGE" description="INDENT_IMAGE_DESC">
+			<option value="0">Template</option>
+			<option value="1">Joomla! default images</option>
+			<option value="2">Use fieldset below</option>
+			<option value="3">None</option>
+		</field>
+		<field name="indent_image1" type="imagelist" directory="/media/media/images" default="" label="Indent Image 1" description="Image for the first sub-level" />
+		<field name="indent_image2" type="imagelist" directory="/media/media/images" default="" label="Indent Image 2" description="Image for the second sub-level" />
+		<field name="indent_image3" type="imagelist" directory="/media/media/images" default="" label="Indent Image 3" description="Image for the third sub-level" />
+		<field name="indent_image4" type="imagelist" directory="/media/media/images" default="" label="Indent Image 4" description="Image for the fourth sub-level" />
+		<field name="indent_image5" type="imagelist" directory="/media/media/images" default="" label="Indent Image 5" description="Image for the fifth sub-level" />
+		<field name="indent_image6" type="imagelist" directory="/media/media/images" default="" label="Indent Image 6" description="Image for the sixth sub-level" />
+		<field name="@spacer" type="spacer" default="" label="" description="" />
+		<field name="spacer" type="text" default="" size="5" label="SPACER" description="SPACER_DESC" />
+		<field name="end_spacer" type="text" default="" size="5" label="End Spacer" description="End Spacer for Horizontal menu" />
+	</fieldset>
+</fields>	
+</config>
+</extension>

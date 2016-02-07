@@ -1,0 +1,287 @@
+/*---------------------------------------------------------------- 
+  Copyright:
+  Copyright (C) 2008 - 2011 IceTheme. All Rights Reserved
+  
+  License:
+  Copyrighted Commercial Software 
+  
+  Author:
+  IceTheme - http://wwww.icetheme.com
+---------------------------------------------------------------- */
+
+/* ---------------------- modules.css --------------------------
+This CSS file contain the codes that Joomla uses to output its 
+modules. Normally the module positons found here are: left, right,
+bottom, promo, showcase etc.
+
+- Feel free to make changes to suit the needs to your website
+project
+---------------------------------------------------------------- */
+
+
+/* -- Promo and Bottom -- 
+used on the "promo" and "bottom" module positions */
+#promo .separator,
+#bottom .separator {
+	position:relative;
+	margin-right:20px}
+
+#promo .moduletable,
+#bottom .moduletable{
+	color:#fff;
+	color:rgba(255,255,255,.7);
+	margin:15px 0}
+
+	#promo .moduletable h3.mod-title,
+	#bottom .moduletable h3.mod-title{
+		font-size:1.5em;
+		color:#fff;
+		text-shadow:1px 1px 1px rgba(0,0,0,.75);
+		padding:0;
+		margin-bottom:15px}
+		
+		#promo .moduletable h3.mod-title span,
+		#bottom .moduletable h3.mod-title span  {
+			color:#ccc;
+			font-style:italic;
+			font-family:Verdana, Geneva, sans-serif;
+			display:block;
+			font-size:12px;
+			line-height:1.6em;
+			margin-bottom:10px;
+			margin-top:-3px;} 
+						
+		
+		#promo .moduletable img,
+		#bottom .moduletable img{
+			float:left;
+			margin:0 10px 10px 0}
+	
+		#promo .moduletable a,
+		#bottom .moduletable a {
+			color:#F0CA59;}
+		
+		 .moduletable p:last-child {
+			 margin-bottom:0}		
+			
+	
+		
+		/* width for the modules */
+		#promo .width33 { width:31.2%}
+		#promo .width50 { width:48.5%}
+		#promo .width100 { width:100%}
+		
+		#bottom .width25 { width:23.3%}
+		#bottom .width33 { width:31.9%}
+		#bottom .width50 { width:48.9%}
+		#bottom .width100 { width:100%}
+	
+
+
+
+								
+/* 
+Col Modules
+--------------
+The columns modules are used on the "left" and "right" positions.
+Normally they may contain suffixes which you may add through each 
+module on their paramenters so that you may have different module
+styles. 
+---------------------------------------------------------------- */
+
+
+/* on the "left" position */
+ #left-column .col-module {
+	position:relative;
+	margin:0 0 20px 0;}	
+	
+	#left-column .col-module .col-module-header-l {
+		background:url(../images/col-module-left-header.png) no-repeat 0 0;
+		position:absolute;
+		width:10px;
+		height:45px;
+		top:0;
+		left:-9px;}	
+			
+	#left-column .col-module .col-module-header {
+		float:left;
+		height:45px;
+		background:url(../images/col-module-left-header.png) no-repeat 100% 0}
+	
+	
+		#left-column .col-module h3.mod-title {
+			font-size:1.25em;
+			text-transform:uppercase;
+			letter-spacing:0.015em;
+			margin:7px 0 2px 0;
+			padding:0 15px;
+			text-shadow:1px 1px 1px rgba(0,0,0,.7);
+			color:#fff;}
+		
+			/* subtitles */
+			#left-column  .col-module h3.mod-title span {
+				display:block;
+				font-family:Verdana, Geneva, sans-serif;
+				padding:0;
+				font-size:11px;
+				text-shadow:none;
+				font-style:italic;
+				line-height:1em;
+				color:#fff;
+				color:rgba(255,255,255,.7);
+				background:#823003;
+				background: -moz-linear-gradient(left, #B44205, #823003);
+				background: -webkit-linear-gradient(left, #B44205, #823003);
+				background: -o-linear-gradient(left, #B44205, #823003);
+				padding:3px 9px 4px;
+				text-transform:none;
+				position:absolute;
+				top:10px;
+				right:290px;
+				white-space:nowrap;
+				border-radius:5px;
+				-webkit-transition:all .3s linear;
+				-moz-transition:all .3s linear;
+				-o-transition:all .3s linear;
+				transition:all .3s linear;
+				opacity:0}
+				
+				#left-column  .col-module h3.mod-title span:after {
+					 content:"";
+					  border-style: dashed;
+					  border-color: transparent;
+					  border-width: 0.9em;
+					  display: -moz-inline-box;
+					  display: inline-block;
+					  /* Use font-size to control the size of the arrow. */
+					  height: 0;
+					  line-height: 0;
+					  position: relative;
+					  vertical-align: middle;
+					  width: 0;
+					   border-left-width: 1em;
+					  border-left-style: solid;
+					  border-left-color: #823003;
+					  position:absolute;
+					  right:-16px;
+					  bottom:0px;
+					  -webkit-transition:opacity .3s linear;
+					  -moz-transition:opacity .3s linear;
+					   -o-transition:opacity .3s linear;
+					   transition:opacity .3s linear}
+		
+						#left-column  .col-module:hover h3.mod-title span {
+							right:265px;
+							opacity:1}
+
+
+			#left-column .col-module .col-module-content{
+				padding:0 15px;
+				color:#444;
+				position:relative;
+				clear:both;}	
+				
+				
+			/* -- Style 1 --
+		   This is when you put a suffix on the module class sufixx parameter "-style1"
+		   so that you may have a different styled module   */	
+		   	#left-column .col-module-style1 .col-module-header-l {
+				background-position:0 -45px}
+					
+			#left-column .col-module-style1 .col-module-header {
+				background-position: 100% -45px}
+				
+			
+			/* -- Style 2 --
+		   This is when you put a suffix on the module class sufixx parameter "-style1"
+		   so that you may have a different styled module   */	
+		   	#left-column .col-module-style2 .col-module-header-l {
+				background-position:0 -90px}
+					
+			#left-column .col-module-style2 .col-module-header {
+				background-position: 100% -90px}
+				
+				#left-column .col-module-style2 h3.mod-title {
+					text-shadow:1px 1px 1px rgba(255,255,255,1);
+					color:#333;}		
+					
+			
+		   		
+				
+				
+				
+	
+	
+/* on the "right" position */
+#right-column .inside > .col-module {
+	position:relative;
+	margin:0 15px 20px;}	
+	
+	#right-column .col-module h3.mod-title {
+		font-size:1.35em;
+		text-transform:uppercase;
+		margin:0 0 12px 0;
+		border-bottom:1px dotted #ccc;
+		padding:0 0 9px;}
+		
+		#right-column .col-module h3.mod-title span {
+			display:block;
+			font-family:Verdana, Geneva, sans-serif;
+			padding:0;
+			font-size:11px;
+			text-shadow:none;
+			text-transform:none;
+			font-style:italic;
+			line-height:1em;
+			color:#999;}
+			
+			
+			#right-column .col-module .col-module-content{
+				position:relative;
+				clear:both;}	
+	
+	
+	
+
+			
+
+/* -----------------
+ Footer Modules
+ used module positions are footer1, footer2, footer3 and footer4, and footer5
+----------------- */
+#footer .separator {
+	padding-right:25px;}
+	
+	#footer .moduletable {
+		text-shadow:1px 1px 1px #fff;
+		margin:0 0 30px;
+		color:#555;} 
+			
+			
+		#footer .moduletable h3.mod-title {
+			color:#111;
+			padding:0;
+			font-size:1.35em;
+			text-transform:uppercase;
+			margin:0 0 2px}
+			#footer .moduletable h3.mod-title span {
+				color:#777;
+				font-style:italic;
+				font-family:Verdana, Geneva, sans-serif;
+				display:block;
+				text-transform:none;
+				font-size:12px;
+				line-height:1.6em;
+				margin-bottom:12px;
+				margin-top:-2px;} 
+			
+						
+
+		/* width for the modules */
+		#footer .width20 { width:17.9%}
+		#footer .width25 { width:23%}
+		#footer .width33 { width:31.5%}
+		#footer .width50 { width:48.6%}
+		#footer .width100 { width:100%}
+	
+			 

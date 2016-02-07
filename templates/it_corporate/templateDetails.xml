@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE install PUBLIC "-//Joomla! 1.6//DTD template 1.0//EN" "http://www.joomla.org/xml/dtd/1.6/template-install.dtd">
+<extension version="1.6" type="template" client="site">
+	<name>it_corporate</name>
+	<version>1.6.0</version>
+	<creationDate>01 July 2011</creationDate>
+	<author>IceTheme</author>
+	<authorEmail>info@icetheme.com</authorEmail>
+	<authorUrl>http://www.icetheme.com</authorUrl>
+	<copyright>Copyright (C) 2008 - 2011 IceTheme.com</copyright>
+    <license>Proprietary - IceTheme Club Members Usage Only</license>
+	<description>TPL_XML_DESCRIPTION</description>
+
+	<files>
+		<folder>css</folder>
+		<folder>html</folder>
+		<folder>images</folder>
+		<folder>language</folder>
+		<folder>icetools</folder>
+		<filename>index.html</filename>
+		<filename>index.php</filename>
+		<filename>templateDetails.xml</filename>
+		<filename>template_preview.png</filename>
+		<filename>template_thumbnail.png</filename>
+		<filename>favicon.ico</filename>
+		<filename>component.php</filename>
+		<filename>error.php</filename>
+		<filename>offline.php</filename>
+		<filename>css_vars.php</filename>
+	</files>
+
+	<positions>
+			<position>topmenu</position>
+			<position>search</position>
+			<position>mainmenu</position>
+			<position>topmenu</position>
+			<position>icetabs</position>
+			<position>promo1</position>
+			<position>promo2</position>
+			<position>promo3</position>
+			<position>bottom1</position>
+			<position>bottom2</position>
+			<position>bottom3</position>
+			<position>bottom4</position>
+			<position>left</position>
+			<position>right</position>
+			<position>breadcrumbs</position>
+			<position>footermenu</position>
+			<position>footer</position>
+			<position>footer1</position>
+			<position>footer2</position>
+			<position>footer3</position>
+			<position>footer4</position>
+			<position>footer5</position>
+			<position>language</position>
+			<position>date</position>
+			<position>contact</position>
+			<position>no-position</position>
+			<position>debug</position>
+		</positions>
+	
+
+	<languages folder="language">
+		<language tag="en-GB">en-GB/en-GB.tpl_it_corporate.ini</language>
+		<language tag="en-GB">en-GB/en-GB.tpl_it_corporate_sys.ini</language>
+	</languages>
+	
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+			
+				<field name="license" type="text" default="" size="45" label="TPL_LICENSE" description="TPL_LICENSE_DESC"/>
+				<field name="cdate" type="hidden" hide_default="1" label="TPL_FIELD_LOGO_LABEL" description="TPL_FIELD_LOGO_DESC" />
+				
+				<field type="spacer" class="text" label="" />
+	 			<field type="spacer" class="text" label="" />
+				
+				<field name="TemplateStyle" type="list" default="style1" label="TPL_FIELD_TEMPLATESTYLE_LABEL"  description="TPL_FIELD_TEMPLATESTYLE_DESC">
+					<option value="style1">TPL_FIELD_TEMPLATESTYLE_STYLE1</option>
+					<option value="style2">TPL_FIELD_TEMPLATESTYLE_STYLE2</option>
+					<option value="style3">TPL_FIELD_TEMPLATESTYLE_STYLE3</option>
+					<option value="style4">TPL_FIELD_TEMPLATESTYLE_STYLE4</option>
+					<option value="style5">TPL_FIELD_TEMPLATESTYLE_STYLE5</option>
+					<option value="style6">TPL_FIELD_TEMPLATESTYLE_STYLE6</option>
+				</field>
+						
+				
+				
+				<field name="layout_leftcol_width" type="text" default="240" label="TPL_FIELD_LEFTCOLWIDTH_LABEL" description="TPL_FIELD_LEFTCOLWIDTH_DESC" filter="int" />
+				
+				<field name="layout_rightcol_width" type="text" default="240" label="TPL_FIELD_RIGHTCOLWIDTH_LABEL" description="TPL_FIELD_RIGHTCOLWIDTH_DESC" filter="int" />
+
+					
+				<field name="logo" type="media" hide_default="1" label="TPL_FIELD_LOGO_LABEL" description="TPL_FIELD_LOGO_DESC" />
+					
+				
+				<field name="go2top" type="radio" default="1" label="TPL_FIELD_GOTOP_LABEL"  description="TPL_FIELD_GOTOP_DESC" filter="int">
+					<option value="0">TPL_FIELD_NO</option>
+					<option value="1">TPL_FIELD_YES</option>
+				</field>
+				
+				
+				<field name="icelogo" type="radio" default="1" label="TPL_FIELD_ICELOGO_LABEL"  description="TPL_FIELD_ICELOGO_DESC" filter="int">
+					<option value="0">TPL_FIELD_NO</option>
+					<option value="1">TPL_FIELD_YES</option>
+				</field>
+			</fieldset>
+		</fields>
+	</config>
+</extension>

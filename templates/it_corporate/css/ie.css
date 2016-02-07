@@ -1,0 +1,129 @@
+/*---------------------------------------------------------------- 
+  Copyright:
+  Copyright (C) 2008 - 2011 IceTheme. All Rights Reserved
+  
+  License:
+  Copyrighted Commercial Software 
+  
+  Author:
+  IceTheme - http://wwww.icetheme.com
+---------------------------------------------------------------- */
+
+
+/* ---------------------- ie.css --------------------------
+This CSS file contain the fixes for the Internet Explorer 7 and
+Internet Explorer 8. The properties with "*" before them are
+only for Internet Exploper 7. The other may apply to both 
+browser versions.
+
+- For IE6 we have droppped support.
+- For IE9 there is no need for hacks as this browser version
+is improved very well comparing to IE7/IE8  
+---------------------------------------------------------------- */
+
+
+
+/* forms.css 
+-------------*/
+button,
+input.button,
+a.button { *padding:2px 5px 0px}
+
+
+
+/* modules.css */
+#promo .moduletable h3.mod-title,
+#bottom .moduletable h3.mod-title,
+#footer .moduletable,
+.col-module,
+.col-module-style1, 
+.col-module-style2 {
+	*zoom:1;}
+
+
+#promo .moduletable h3.mod-title,
+#bottom .moduletable h3.mod-title{
+	margin-bottom:0}
+	
+					
+				
+/* layout.css */
+#content {
+	background-image:url(../images/content_pattern.png);
+	background-repeat: repeat-x;
+	background-position: bottom;}
+
+
+#promo_effect,
+#bottom-effect {
+	*display:none}
+	
+
+hr { *background:none; *color:#333; *height:1px!important; *margin-bottom:25px}
+
+	
+div#social ul li {
+	*zoom:1;
+	*display:inline}
+	
+/* joomla.css */
+#search .inputbox {
+	*width:220px}
+
+#topmenu {
+	*width:420px}
+#topmenu ul.menu {
+	*float:right}
+
+form#login-form p#form-login-remember label {
+	*width:95px}		
+		
+input , textarea{
+color:#777!important;
+*color:#777!important;
+}		
+			
+/* iceshare */
+#ice-sharing {
+	*width:60px}
+		
+/* icetabs */
+.ice-tabs-candy .ice-main-wapper .ice-main-item .ice-description-inside {
+	*width:98%}
+	
+.ice-tabs-candy .ice-main-wapper .ice-main-item .ice-description-inside {
+	background:url(../images/ie_fix.png) repeat} 
+	
+
+
+	
+/* color fixes on trasparency for IE7 */
+#promo .moduletable,
+#bottom .moduletable{
+	*color:#fff;}
+
+#mod_online {
+	*color:#fff;}	
+	
+.col-module-content ul.menu li a {
+	*color:#fff;}
+
+.icesubMenu .icemega_cover_module .icemega_modulewrap { 
+	*color:#fff;}
+
+.ice-tabs-candy .ice-main-wapper .ice-main-item .ice-description {
+	*color:#fff;}
+
+.inputbox,
+input[type="text"],
+input[type="password"],
+textarea,
+select   {
+	color:#fff}
+
+.TDB-header,	
+.TDB-tweet-left {
+	background:#111!important;}
+.TDB-header-user {
+	background:#222!important;}
+	

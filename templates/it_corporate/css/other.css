@@ -1,0 +1,86 @@
+/*---------------------------------------------------------------- 
+  Copyright:
+  Copyright (C) 2008 - 2011 IceTheme. All Rights Reserved
+  
+  License:
+  Copyrighted Commercial Software 
+  
+  Author:
+  IceTheme - http://wwww.icetheme.com
+  
+---------------------------------------------------------------- */
+
+
+/* --------------- error and offline css -----------------------
+This file is used for the error pages by joomla (error.php)
+in conjuction with the IceTheme template
+---------------------------------------------------------------- */
+
+.wrapper { margin:0 auto; width:666px;}
+
+#logo {
+	margin:60px 0 30px}
+	
+
+#content {
+	background:#CDC6B4 url(../images/content.jpg) repeat center;
+	padding:15px;}
+	
+	#content_inside {
+		background:#fff;
+		padding:25px 20px;
+		position:relative;
+		border-top-left-radius:30px;}
+		
+		
+		#content_inside:before {
+			content:"";
+			background:url(../images/content_inside_top.png) no-repeat top left;
+			position:absolute;
+			width:330px;
+			height:330px;
+			top:-29px;
+			overflow:hidden;
+			z-index:-9px;
+			left:-32px;}
+			
+			#content_inside2 {
+				position:relative;
+			}
+
+		
+		
+	
+	#content h1 {
+		font-size:1.7em;
+		padding-bottom:.75em;}
+		
+	#content p {
+		margin-bottom:.25em;}
+				
+
+				
+				
+		#content form#form-login p {
+			margin-bottom:1.5em}
+			
+			#content form#form-login p label {
+				text-align:right;
+				width:100px;
+				padding-right:10px}
+			
+			#content form#form-login p#form-login-remember  {
+				margin-bottom:0;
+				margin-left:112px}
+			
+			#content form#form-login p#form-login-remember label {
+				width:auto} 	
+				
+				
+body.errorpage #logo { margin-top:35px}
+
+body.errorpage p.notice {
+	background-color:rgba(0,0,0,.3);
+	border:1px solid rgba(255,255,255,.1);
+	box-shadow:none;
+	margin-bottom:25px!important;}			

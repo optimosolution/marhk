@@ -1,0 +1,67 @@
+
+/*---------------------------------------------------------------- 
+  Copyright:
+  (C) 2008 - 2010 IceTheme
+  
+  License:
+  GNU/GPL http://www.gnu.org/copyleft/gpl.html
+  
+  Author:
+  IceTheme - http://wwww.icetheme.com
+---------------------------------------------------------------- */
+
+.iceaccordion-theme-candy {}
+	
+
+	.iceaccordion-theme-candy h4.toggler {
+		background-color: #fff;
+		-moz-border-radius: 5px;
+		-webkit-border-radius:5px;
+		border-radius:5px;
+		background: -webkit-gradient(linear, left bottom, left 16, from(#FFFFFF), color-stop(10%, #F2F2F2), to(#FFFFFF));
+		background: -moz-linear-gradient(bottom, #FFFFFF, #F2F2F2 1px, #FFFFFF 16px);
+		border: 1px solid #E6E6E6;
+		margin:0 0 7px;
+		padding:.4em .5em .3em}
+		
+		.iceaccordion-theme-candy h4.open {
+			background: -webkit-gradient(linear, left top, left 16, from(#FFFFFF), color-stop(4%, #F2F2F2), to(#FFFFFF));
+			background: -moz-linear-gradient(top, #FFFFFF, #F2F2F2 1px, #FFFFFF 16px);}
+		
+		
+		.iceaccordion-theme-candy div.accordion_content .padding {
+			margin-top:0;
+			margin-bottom:2em;
+			margin-left:.5em;
+			margin-right:.5em}
+.jshop_price, .jshop_old_price {
+    color: #950000;
+}
+.iceaccordion .product_label {
+    margin-left: 0px;
+    margin-top: -5px;
+    position: absolute;
+}
+.ip_smallfont {
+    color: #999999;
+    font-size: 10px;
+    font-style: italic;
+	text-align: left;
+}
+.ip_property{
+	text-align:left;
+}
+.more_info{
+	text-align:left;
+}
+.ice_gaddress{
+	text-align:left;
+}
+.ip_featured_thumb{
+	border: solid 1px #f0f0f0; overflow:hidden !important;
+	position: relative; 
+}
+.property_overview_bannertopleft{ z-index: 10 !important; position: absolute; top: 0px; left: 0px; }
+.property_overview_bannerbotleft{ z-index: 9 !important; position: absolute; bottom: 0px; left: 0px; }
+.property_overview_bannerright{position: absolute; top: 0px; right: 0px;}
+.iceaccordion-hidden{ display: none; }
